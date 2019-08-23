@@ -4,6 +4,7 @@ namespace hiqdev\rdap\core\ValueObject\Label;
 
 abstract class Label
 {
+    private const HYPHEN = "-";
     /**
      * @var string
      */
@@ -16,7 +17,12 @@ abstract class Label
 
     public static function of(string $name): Label
     {
-        // TODO: implement
+        if ($name === '') {
+            return RootLabel::getInstanse();
+        }
+        if (!ASCIILabel::checkContains($name)) {
+
+        }
     }
 
     /**

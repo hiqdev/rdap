@@ -80,7 +80,7 @@ final class DomainName
         foreach ($this->labels as $label) {
             $str[] = (string)$label;
         }
-        return implode($str);
+        return implode('.', $str);
     }
 
     public function toLDH(): self
@@ -94,6 +94,10 @@ final class DomainName
 
     public function toUnicode(): self
     {
+        foreach ($this->labels as $label) {
+            $uni[] = $label->toUnicode();
+        }
+        return new DomainName($uni);
     }
 
     /**
