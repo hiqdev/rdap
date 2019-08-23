@@ -4,7 +4,7 @@ namespace hiqdev\rdap\core\ValueObject\Label;
 
 abstract class Label
 {
-    private const HYPHEN = "-";
+    private const HYPHEN = '-';
     /**
      * @var string
      */

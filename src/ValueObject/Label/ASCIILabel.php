@@ -17,7 +17,6 @@ abstract class ASCIILabel extends Label
 
     /**
      * @param string $string
-     * @return bool
      */
     public static function checkContains(string $string): bool
     {

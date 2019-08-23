@@ -3,92 +3,53 @@
 
 namespace hiqdev\rdap\core\Entity;
 
-
 use hiqdev\rdap\core\Constant\ObjectClassName;
 use hiqdev\rdap\core\ValueObject\DomainName;
+use hiqdev\rdap\core\ValueObject\IpAddresses;
 
+/**
+ * Class Nameserver
+ *
+ * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
+ */
 class Nameserver extends Common
 {
-    public const OBJECT_CLASS_NAME = "nameserver";
-
     /**
-     * @var string
+     * @var string|null
      */
-    public $handle;
-
-    /**
-     * @var DomainName
-     */
-    public $ldhName;
+    private $handle;
 
     /**
      * @var DomainName
      */
-    public $unicodeName;
+    private $ldhName;
 
     /**
-     * @var IpAddresses
+     * @var IpAddresses|null
      */
-    public $ipAddresses;
+    private $ipAddresses;
 
     public function __construct(
-        array $links,
-        array $notices,
-        array $remarks,
-        string $lang,
-        ObjectClassName $objectClassName,
-        array $events,
-        array $status,
-        DomainName $port43,
-        string $handle,
         DomainName $ldhName,
-        DomainName $unicodeName,
-        IpAddresses $ipAddresses
+        IpAddresses $ipAddresses = null
     ) {
-        parent::__construct(
-            $links,
-            $notices,
-            $remarks,
-            $lang,
-            $objectClassName,
-            $events,
-            $status,
-            $port43
-        );
-        $this->handle = $handle;
+        parent::__construct(ObjectClassName::NAMESERVER());
+
         $this->ldhName = $ldhName;
-        $this->unicodeName = $unicodeName;
         $this->ipAddresses = $ipAddresses;
     }
 
-    /**
-     * @return string
-     */
-    public function getHandle()
+    public function getHandle(): ?string
     {
         return $this->handle;
     }
 
-    /**
-     * @return DomainName
-     */
-    public function getLdhName()
+    public function getLdhName(): DomainName
     {
         return $this->ldhName;
     }
 
-    /**
-     * @return DomainName
-     */
-    public function getUnicodeName()
-    {
-        return $this->unicodeName;
-    }
-
-    /**
-     * @return IpAddresses
-     */
-    public function getIpAdresses()
+    public function getIpAddresses(): ?IpAddresses
     {
         return $this->ipAddresses;
     }

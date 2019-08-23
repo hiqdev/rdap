@@ -1,17 +1,17 @@
 <?php
 
 
-namespace hiqdev\rdap\core\Entity;
+namespace hiqdev\rdap\core\ValueObject;
 
 
-use hiqdev\rdap\core\Entity\IpAddresses\IpAddress;
-use hiqdev\rdap\core\Entity\IpAddresses\IpV4Adress;
-use hiqdev\rdap\core\Entity\IpAddresses\IpV6Adress;
+use hiqdev\rdap\core\ValueObject\IpAddress;
+use hiqdev\rdap\core\ValueObject\IpV4Address;
+use hiqdev\rdap\core\ValueObject\IpV6Address;
 
 class IpAddresses
 {
     /**
-     * @var string[]
+     * @var IpAddress[]|null
      */
     private $v4;
 
@@ -34,7 +34,7 @@ class IpAddresses
     }
 
     /**
-     * @param IpAddress[] $inetAddr
+     * @param \hiqdev\rdap\core\ValueObject\IpAddresses\IpAddress[] $inetAddr
      * @return IpAddresses
      */
     public static function getInstanceByInetAddr(array $inetAddr): self
@@ -47,10 +47,10 @@ class IpAddresses
         $IpV4Array = [];
         $IpV6Array = [];
         foreach ($inetAddr as $address) {
-            if ($address instanceof IpV4Adress) {
+            if ($address instanceof IpV4Address) {
                 $IpV4Array[] = $address->getHostAddress();
             }
-            if ($address instanceof IpV6Adress) {
+            if ($address instanceof IpV6Address) {
                 $IpV6Array[] = $address->getHostAddress();
             }
         }
