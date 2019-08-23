@@ -2,7 +2,7 @@
 
 namespace hiqdev\rdap\core\ValueObject\Label;
 
-class ASCIILabel extends Label
+abstract class ASCIILabel extends Label
 {
 
 }

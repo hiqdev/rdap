@@ -2,7 +2,36 @@
 
 namespace hiqdev\rdap\core\ValueObject\Label;
 
-final class LDHLabel extends ASCIILabel
+/**
+ * Class LDHLabel
+ * LDH (Letter, Digit, Hyphen)
+ * The hostname convention defined in RFC 952 (later modified by RFC 1123) was used by top-level
+ * domain Registries before internationalization. This meant that domain names could only practically
+ * contain the letters a-z, digits 0-9 and the hyphen "-". The term "LDH code points" refers to this subset.
+ * With the introduction of IDNs this rule is no longer relevant for all domain names although with the use of IDNA,
+ * what appears in the DNS remains LDH.
+ *
+ * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
+ */
+abstract class LDHLabel extends ASCIILabel
 {
+    public function __construct(string $label)
+    {
+        parent::__construct($label);
 
+        $this->ensureIsLDH();
+    }
+
+    /**
+     * @throws \OutOfRangeException if value is not LDH
+     */
+    private function ensureIsLDH(): void
+    {
+        if (!preg_match('/^[A-Z0-9-]$/i', $this->value)) {
+            throw new \OutOfRangeException(sprintf(
+                'Value "%s" is not a valid LDH label',
+                $this->value
+            ));
+        }
+    }
 }
