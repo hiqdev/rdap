@@ -1,0 +1,28 @@
+{
+    "name": "hiqdev/rdap",
+    "type": "library",
+    "description": "Registration Data Access Protocol (RDAP) - core domain entities implementation in PHP",
+    "keywords": [
+        "rdap",
+        "php",
+        "whois"
+    ],
+    "require": {
+        "league/uri": "^5.3",
+        "marc-mabe/php-enum": "^4.1"
+    },
+    "require-dev": {
+        "hiqdev/hidev-php": "dev-master",
+        "hiqdev/hidev-hiqdev": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "hiqdev\\rdap\\core\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "hiqdev\\rdap\\core\\tests\\": "tests"
+        }
+    }
+}
