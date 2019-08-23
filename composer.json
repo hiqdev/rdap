@@ -10,7 +10,7 @@
     "require": {
         "league/uri": "^5.3",
         "marc-mabe/php-enum": "^4.1",
-        "ext-http": "*"
+        "sabre/vobject": "^4.2"
     },
     "require-dev": {
         "hiqdev/hidev-php": "dev-master",

@@ -84,20 +84,19 @@ final class DomainName
 
     public function toLDH(): self
     {
-        $ldh = [];
-        /** @var Label $label */
-        foreach ($this->labels as $label) {
-            $ldh[] = $label->toLDH();
-        }
+        $ldh = array_map(static function (Label $label): Label {
+            return $label->toLDH();
+        }, $this->labels);
+
         return new DomainName($ldh);
     }
 
     public function toUnicode(): self
     {
-        $uni = [];
-        foreach ($this->labels as $label) {
-            $uni[] = $label->toUnicode();
-        }
+        $uni = array_map(static function (Label $label): Label {
+            return $label->toUnicode();
+        }, $this->labels);
+
         return new DomainName($uni);
     }
 
