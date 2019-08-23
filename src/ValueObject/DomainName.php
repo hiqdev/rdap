@@ -49,7 +49,9 @@ final class DomainName
         if ($this->isFQDN()) {
             return $this;
         }
-        return new DomainName(RootLabel::getInstanse());
+        $labels = $this->labels;
+        $labels[] = RootLabel::getInstanse();
+        return new DomainName($labels);
     }
 
     public function isFQDN(): bool
