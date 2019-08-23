@@ -6,6 +6,7 @@ namespace hiqdev\rdap\core\Entity;
 
 use hiqdev\rdap\core\Entity\IpAddresses\IpAddress;
 use hiqdev\rdap\core\Entity\IpAddresses\IpV4Adress;
+use hiqdev\rdap\core\Entity\IpAddresses\IpV6Adress;
 
 class IpAddresses
 {
@@ -49,7 +50,7 @@ class IpAddresses
             if ($address instanceof IpV4Adress) {
                 $IpV4Array[] = $address->getHostAddress();
             }
-            if ($address instanceof IpV4Adress) {
+            if ($address instanceof IpV6Adress) {
                 $IpV6Array[] = $address->getHostAddress();
             }
         }
