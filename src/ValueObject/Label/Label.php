@@ -26,4 +26,19 @@ abstract class Label
     {
         return $this->value;
     }
+
+    public function __toString(): string
+    {
+        return $this->value;
+    }
+
+    public function toLDH(): Label
+    {
+        return $this;
+    }
+
+    public function toUnicode(): Label
+    {
+        return $this;
+    }
 }
