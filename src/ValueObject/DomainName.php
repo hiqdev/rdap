@@ -85,7 +85,7 @@ final class DomainName
 
     public function toLDH(): self
     {
-        /** @var DomainName $label */
+        /** @var Label $label */
         foreach ($this->labels as $label) {
             $ldh[] = $label->toLDH();
         }
