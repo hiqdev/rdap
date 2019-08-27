@@ -16,7 +16,7 @@ final class DomainName
 
     /**
      * DomainName constructor.
-     * @param array $labels
+     * @param Label[] $labels
      * @throws ArgumentCountError
      * @throws InvalidArgumentException
      */
