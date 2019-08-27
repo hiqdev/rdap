@@ -11,7 +11,7 @@ use hiqdev\rdap\core\ValueObject\IpV6Address;
 class IpAddresses
 {
     /**
-     * @var IpAddress[]|null
+     * @var string[]
      */
     private $v4;
 
@@ -21,8 +21,8 @@ class IpAddresses
     private $v6;
 
     /**
-     * @param array $v4
-     * @param array $v6
+     * @param string[] $v4
+     * @param string[] $v6
      * @return IpAddresses
      */
     public static function getInstanceByProtocol(array $v4, array $v6): self
@@ -34,7 +34,7 @@ class IpAddresses
     }
 
     /**
-     * @param \hiqdev\rdap\core\ValueObject\IpAddresses\IpAddress[] $inetAddr
+     * @param \hiqdev\rdap\core\ValueObject\IpAddress[] $inetAddr
      * @return IpAddresses
      */
     public static function getInstanceByInetAddr(array $inetAddr): self

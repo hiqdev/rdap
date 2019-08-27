@@ -6,6 +6,6 @@ final class IpV6Address implements IpAddress
 {
     public function getHostAddress(): string
     {
-        // TODO: Implement getCode() method.
+        // TODO: Implement getHostAddress() method.
     }
 }
