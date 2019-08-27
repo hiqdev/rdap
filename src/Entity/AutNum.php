@@ -18,27 +18,27 @@ final class AutNum extends Common
     private $handle;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $startAutnum;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $endAutnum;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $name;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $type;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $country;
 
@@ -47,17 +47,17 @@ final class AutNum extends Common
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->country;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -71,25 +71,25 @@ final class AutNum extends Common
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getEndAutnum(): int
+    public function getEndAutnum(): ?int
     {
         return $this->endAutnum;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getStartAutnum(): int
+    public function getStartAutnum(): ?int
     {
         return $this->startAutnum;
     }
