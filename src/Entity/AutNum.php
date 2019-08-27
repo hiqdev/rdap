@@ -42,6 +42,9 @@ final class AutNum extends Common
      */
     private $country;
 
+    /**
+     * AutNum constructor.
+     */
     public function __construct() {
         parent::__construct(ObjectClassName::AUTNUM());
     }
