@@ -6,6 +6,7 @@ namespace hiqdev\rdap\core\Entity;
 
 use hiqdev\rdap\core\Constant\ObjectClassName;
 use hiqdev\rdap\core\ValueObject\DomainName;
+use hiqdev\rdap\core\ValueObject\Event;
 
 final class AutNum extends Common
 {
@@ -17,53 +18,46 @@ final class AutNum extends Common
     private $handle;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $startAutnum;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $endAutnum;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $name;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $type;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $country;
 
-    public function __construct(
-        string $handle,
-        int $startAutnum,
-        int $endAutnum,
-        string $name,
-        string $type,
-        string $country
-    ) {
+    public function __construct() {
         parent::__construct(ObjectClassName::AUTNUM());
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->country;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -77,26 +71,66 @@ final class AutNum extends Common
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getEndAutnum(): int
+    public function getEndAutnum(): ?int
     {
         return $this->endAutnum;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getStartAutnum(): int
+    public function getStartAutnum(): ?int
     {
         return $this->startAutnum;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry(string $country): void
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $startAutnum
+     */
+    public function setStartAutnum(int $startAutnum): void
+    {
+        $this->startAutnum = $startAutnum;
+    }
+
+    /**
+     * @param int $endAutnum
+     */
+    public function setEndAutnum(int $endAutnum): void
+    {
+        $this->endAutnum = $endAutnum;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 }
