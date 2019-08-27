@@ -49,6 +49,9 @@ class IPNetwork extends Common
      */
     private $entities;
 
+    /**
+     * IPNetwork constructor.
+     */
     public function __construct()
     {
         parent::__construct(ObjectClassName::IPNETWORK());
