@@ -6,6 +6,10 @@ use InvalidArgumentException;
 
 abstract class ASCIILabel extends Label
 {
+    /**
+     * ASCIILabel constructor.
+     * @param string $label
+     */
     public function __construct(string $label)
     {
         parent::__construct($label);

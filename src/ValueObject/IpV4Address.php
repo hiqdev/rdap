@@ -6,5 +6,6 @@ final class IpV4Address implements IpAddress
 {
     public function getHostAddress(): string
     {
+        // TODO: Implement getHostAddress() method.
     }
 }
