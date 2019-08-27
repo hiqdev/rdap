@@ -24,6 +24,12 @@ abstract class AbstractData
      */
     protected $algorythm;
 
+    /**
+     * AbstractData constructor.
+     * @param Event[] $events
+     * @param Link[] $links
+     * @param int $algorythm
+     */
     public function __construct(array $events, array $links, int $algorythm)
     {
         $this->events = empty($events) ? [] : $events;
