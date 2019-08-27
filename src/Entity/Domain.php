@@ -6,6 +6,7 @@ use hiqdev\rdap\core\Constant\ObjectClassName;
 use hiqdev\rdap\core\ValueObject\DomainName;
 use hiqdev\rdap\core\ValueObject\DomainVariant\Variant;
 use hiqdev\rdap\core\ValueObject\PublicId;
+use hiqdev\rdap\core\ValueObject\SecureDNS;
 
 final class Domain extends Common
 {
