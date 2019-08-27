@@ -10,6 +10,7 @@ use MabeEnum\Enum;
  * @method static self ENTITY()
  * @method static self NAMESERVER()
  * @method static self DOMAIN()
+ * @method static self AUTNUM()
  *
  * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
  */
@@ -18,4 +19,5 @@ final class ObjectClassName extends Enum
     public const ENTITY     = 'entity';
     public const NAMESERVER = 'nameserver';
     public const DOMAIN     = 'domain';
+    public const AUTNUM     = 'autnum';
 }
