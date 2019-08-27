@@ -7,7 +7,11 @@ use hiqdev\rdap\core\Constant\Relations\DefaultRelation;
 
 class RelationFactory
 {
-    public function Of(string $relation): BasicRelation
+    /**
+     * @param string $relation
+     * @return DefaultRelation|BasicRelation
+     */
+    public function Of(string $relation): object
     {
         try {
             return DefaultRelation::$relation();
