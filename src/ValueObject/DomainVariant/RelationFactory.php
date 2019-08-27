@@ -11,7 +11,7 @@ class RelationFactory
      * @param string $relation
      * @return DefaultRelation|BasicRelation
      */
-    public function Of(string $relation): object
+    public static function Of(string $relation): object
     {
         try {
             return DefaultRelation::$relation();
