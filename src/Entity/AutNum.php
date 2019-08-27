@@ -6,6 +6,7 @@ namespace hiqdev\rdap\core\Entity;
 
 use hiqdev\rdap\core\Constant\ObjectClassName;
 use hiqdev\rdap\core\ValueObject\DomainName;
+use hiqdev\rdap\core\ValueObject\Event;
 
 final class AutNum extends Common
 {
@@ -41,14 +42,7 @@ final class AutNum extends Common
      */
     private $country;
 
-    public function __construct(
-        string $handle,
-        int $startAutnum,
-        int $endAutnum,
-        string $name,
-        string $type,
-        string $country
-    ) {
+    public function __construct() {
         parent::__construct(ObjectClassName::AUTNUM());
     }
 
@@ -98,5 +92,45 @@ final class AutNum extends Common
     public function getStartAutnum(): int
     {
         return $this->startAutnum;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry(string $country): void
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $startAutnum
+     */
+    public function setStartAutnum(int $startAutnum): void
+    {
+        $this->startAutnum = $startAutnum;
+    }
+
+    /**
+     * @param int $endAutnum
+     */
+    public function setEndAutnum(int $endAutnum): void
+    {
+        $this->endAutnum = $endAutnum;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 }
