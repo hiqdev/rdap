@@ -60,18 +60,8 @@ final class Entity extends Common
     private $entities;
 
     public function __construct(
-        array $links,
-        array $notices,
-        array $remarks,
-        string $lang,
-        ObjectClassName $objectClassName,
-        array $events,
-        array $status,
-        DomainName $port43
     ) {
-        parent::__construct($links, $notices, $remarks, $lang, $objectClassName, $events, $status, $port43);
-
-
+        parent::__construct(ObjectClassName::ENTITY());
     }
 
     /**
