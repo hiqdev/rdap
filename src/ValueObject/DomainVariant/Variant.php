@@ -5,12 +5,14 @@ namespace hiqdev\rdap\core\ValueObject\DomainVariant;
 final class Variant
 {
     /**
-     * @var Relation[]
+     * @var Relation[] an array of objects, with each object
+     * containing an "ldhName" member and a "unicodeName" member
      */
     private $relations;
 
     /**
-     * @var string
+     * @var string the name of the Internationalized Domain Name (IDN)
+     * table of codepoints, such as one listed with the IANA
      */
     private $idnTable;
 
@@ -19,6 +21,13 @@ final class Variant
      */
     private $variantNames;
 
+    /**
+     * Variant constructor.
+     *
+     * @param array $relations
+     * @param string $idnTable
+     * @param array $variantNames
+     */
     public function __construct(array $relations, string $idnTable, array $variantNames = [])
     {
         $this->relations = $relations;

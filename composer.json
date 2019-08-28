@@ -10,11 +10,19 @@
     "require": {
         "league/uri": "^5.3",
         "marc-mabe/php-enum": "^4.1",
-        "sabre/vobject": "^4.2"
+        "sabre/vobject": "^4.2",
+        "ext-mbstring": "*",
+        "ext-intl": "*"
+    },
+    "suggest": {
+        "league/fractal": "To transform objects to a JSON structure according to the RFC 7483"
     },
     "require-dev": {
         "hiqdev/hidev-php": "dev-master",
-        "hiqdev/hidev-hiqdev": "dev-master"
+        "hiqdev/hidev-hiqdev": "dev-master",
+        "league/fractal": "^0.18.0",
+        "symfony/serializer": "^4.3.4",
+        "phpunit/phpunit": "^8.3.4"
     },
     "autoload": {
         "psr-4": {

@@ -18,11 +18,14 @@ abstract class Label
     public static function of(string $name): Label
     {
         if ($name === '') {
-            return RootLabel::getInstanse();
+            return RootLabel::getInstance();
         }
-        if (!ASCIILabel::checkContains($name)) {
 
+        if (!ASCIILabel::checkContains($name)) {
+            return new NonASCIILabel($name);
         }
+
+        return new LDHLabel($name);
     }
 
     /**
@@ -40,11 +43,11 @@ abstract class Label
 
     public function toLDH(): Label
     {
-        return $this;
+        return new LDHLabel(idn_to_ascii($this->value, IDNA_NONTRANSITIONAL_TO_ASCII, INTL_IDNA_VARIANT_UTS46));
     }
 
     public function toUnicode(): Label
     {
-        return $this;
+        return new NonASCIILabel(idn_to_utf8($this->value, IDNA_NONTRANSITIONAL_TO_ASCII, INTL_IDNA_VARIANT_UTS46));
     }
 }
