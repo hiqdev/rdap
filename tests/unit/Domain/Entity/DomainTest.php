@@ -38,7 +38,7 @@ class DomainTest extends TestCase
         $this->assertSame([$ns1, $ns2], $domain->getNameservers());
     }
 
-    public function testPublicId()
+    public function testPublicId(): void
     {
         $domain = new Domain(DomainName::of('example.com'));
         $pubId1 = new PublicId('type', 'identifier');
@@ -48,7 +48,7 @@ class DomainTest extends TestCase
         $this->assertSame([$pubId1, $pubId2], $domain->getPublicIds());
     }
 
-    public function testVariant()
+    public function testVariant(): void
     {
         $domain = new Domain(DomainName::of('example.com'));
         $name1 = new Name(DomainName::of('ns1.example.com'), DomainName::of('ns1.example.com'));
@@ -60,7 +60,7 @@ class DomainTest extends TestCase
         $this->assertSame([$variant1, $variant2], $domain->getVariants());
     }
 
-    public function testSecureDNS()
+    public function testSecureDNS(): void
     {
         $domain = new Domain(DomainName::of('example.com'));
         $eventArr = [
@@ -80,7 +80,7 @@ class DomainTest extends TestCase
         $this->assertSame($secureDns, $domain->getSecureDNS());
     }
 
-    public function testUnicodeDomain()
+    public function testUnicodeDomain(): void
     {
         $domain = new Domain(DomainName::of('тест.укр'));
 
