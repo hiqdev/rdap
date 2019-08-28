@@ -9,6 +9,11 @@ final class RootLabel extends Label
      */
     private static $instance;
 
+    private function __construct(string $label)
+    {
+        parent::__construct($label);
+    }
+
     /**
      * @return RootLabel
      */

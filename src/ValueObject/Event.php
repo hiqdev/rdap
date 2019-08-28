@@ -4,7 +4,7 @@ namespace hiqdev\rdap\core\ValueObject;
 
 use DateTimeImmutable;
 use hiqdev\rdap\core\Constant\EventAction;
-use hiqdev\rdap\core\Entity\Link;
+use hiqdev\rdap\core\ValueObject\Link;
 
 final class Event
 {
