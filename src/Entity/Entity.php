@@ -4,9 +4,9 @@ namespace hiqdev\rdap\core\Entity;
 
 use hiqdev\rdap\core\Constant\ObjectClassName;
 use hiqdev\rdap\core\Constant\Role;
-use hiqdev\rdap\core\ValueObject\Contact;
 use hiqdev\rdap\core\ValueObject\Event;
 use hiqdev\rdap\core\ValueObject\PublicId;
+use Sabre\VObject\Component\VCard;
 
 final class Entity extends Common
 {
@@ -30,7 +30,7 @@ final class Entity extends Common
     private $handle;
 
     /**
-     * @var Contact[]|null a jCard with the entity's contact information
+     * @var VCard[]|null a jCard with the entity's VCard information
      */
     private $vcardArray;
 
@@ -80,7 +80,7 @@ final class Entity extends Common
     }
 
     /**
-     * @return Contact[]|null
+     * @return VCard[]|null
      */
     public function getVcardArray(): ?array
     {
@@ -88,9 +88,9 @@ final class Entity extends Common
     }
 
     /**
-     * @param Contact $vcard
+     * @param VCard $vcard
      */
-    public function addVcard(Contact $vcard): void
+    public function addVcard(VCard $vcard): void
     {
         if (empty($this->vcardArray)) {
             $this->vcardArray = [];
