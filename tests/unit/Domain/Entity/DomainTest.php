@@ -2,7 +2,10 @@
 
 namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
+use hiqdev\rdap\core\Constant\Status;
 use hiqdev\rdap\core\Entity\Domain;
+use hiqdev\rdap\core\Entity\Entity;
+use hiqdev\rdap\core\Entity\IPNetwork;
 use hiqdev\rdap\core\Entity\Nameserver;
 use hiqdev\rdap\core\ValueObject\Link;
 use hiqdev\rdap\core\ValueObject\DomainName;
@@ -78,6 +81,26 @@ class DomainTest extends TestCase
         $secureDns = new SecureDNS(true, true, 10, $dsData, $keyData);
         $domain->setSecureDNS($secureDns);
         $this->assertSame($secureDns, $domain->getSecureDNS());
+    }
+
+    public function testEntity(): void
+    {
+        $domain = new Domain(DomainName::of('example.com'));
+        $entity1 = new Entity();
+        $entity1->addStatus(Status::ACTIVE());
+        $entity2 = new Entity();
+        $entity2->addStatus(Status::LOCKED());
+        $domain->addEntity($entity1);
+        $domain->addEntity($entity2);
+        $this->assertSame([$entity1, $entity2], $domain->getEntities());
+    }
+
+    public function testNetwork(): void
+    {
+        $domain = new Domain(DomainName::of('example.com'));
+        $ipNetwork = new IPNetwork();
+        $domain->setNetwork($ipNetwork);
+        $this->assertSame($ipNetwork, $domain->getNetwork());
     }
 
     public function testUnicodeDomain(): void
