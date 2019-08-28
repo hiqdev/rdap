@@ -1,27 +1,23 @@
-<?php
-
+<?php declare(strict_types=1);
 
 namespace hiqdev\rdap\core\ValueObject\Label;
 
-
-class RootLabel extends Label
+final class RootLabel extends Label
 {
     /**
      * @var RootLabel
      */
-    private static $instanse;
-
-    public function __construct()
-    {
-        parent::__construct('');
-        static::$instanse = new RootLabel();
-    }
+    private static $instance;
 
     /**
      * @return RootLabel
      */
-    public static function getInstanse()
+    public static function getInstance(): RootLabel
     {
-        return self::$instanse;
+        if (self::$instance === null) {
+            self::$instance = new self('');
+        }
+
+        return self::$instance;
     }
 }

@@ -13,7 +13,7 @@ namespace hiqdev\rdap\core\ValueObject\Label;
  *
  * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
  */
-abstract class LDHLabel extends ASCIILabel
+final class LDHLabel extends ASCIILabel
 {
     public function __construct(string $label)
     {
@@ -27,7 +27,7 @@ abstract class LDHLabel extends ASCIILabel
      */
     private function ensureIsLDH(): void
     {
-        if (!preg_match('/^[A-Z0-9-]$/i', $this->value)) {
+        if (!preg_match('/^[A-Z0-9-]+$/i', $this->value)) {
             throw new \OutOfRangeException(sprintf(
                 'Value "%s" is not a valid LDH label',
                 $this->value

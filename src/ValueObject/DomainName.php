@@ -4,6 +4,7 @@ namespace hiqdev\rdap\core\ValueObject;
 
 use ArgumentCountError;
 use hiqdev\rdap\core\ValueObject\Label\Label;
+use hiqdev\rdap\core\ValueObject\Label\LDHLabel;
 use hiqdev\rdap\core\ValueObject\Label\RootLabel;
 use InvalidArgumentException;
 
@@ -50,7 +51,7 @@ final class DomainName
             return $this;
         }
         $labels = $this->labels;
-        $labels[] = RootLabel::getInstanse();
+        $labels[] = RootLabel::getInstance();
         return new DomainName($labels);
     }
 

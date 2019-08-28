@@ -35,7 +35,7 @@ class Nameserver extends Common
     ) {
         parent::__construct(ObjectClassName::NAMESERVER());
 
-        $this->ldhName = $ldhName;
+        $this->ldhName = $ldhName->toLDH();
         $this->ipAddresses = $ipAddresses;
     }
 

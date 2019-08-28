@@ -1,28 +1,22 @@
-<?php
-
+<?php declare(strict_types=1);
 
 namespace hiqdev\rdap\core\ValueObject;
 
-
-use hiqdev\rdap\core\ValueObject\IpAddress;
-use hiqdev\rdap\core\ValueObject\IpV4Address;
-use hiqdev\rdap\core\ValueObject\IpV6Address;
-
-class IpAddresses
+final class IpAddresses
 {
     /**
-     * @var string[]
+     * @var IpV4Address[]
      */
     private $v4;
 
     /**
-     * @var string[]
+     * @var IpV6Address[]
      */
     private $v6;
 
     /**
-     * @param string[] $v4
-     * @param string[] $v6
+     * @param IpAddress[] $v4
+     * @param IpAddress[] $v6
      * @return IpAddresses
      */
     public static function getInstanceByProtocol(array $v4, array $v6): self
@@ -56,10 +50,12 @@ class IpAddresses
         }
         $self->v4 = $IpV4Array;
         $self->v6 = $IpV6Array;
+
+        return $self;
     }
 
     /**
-     * @return string[]
+     * @return IpV4Address[]
      */
     public function getV4(): array
     {
@@ -67,7 +63,7 @@ class IpAddresses
     }
 
     /**
-     * @return string[]
+     * @return IpV6Address[]
      */
     public function getV6(): array
     {
