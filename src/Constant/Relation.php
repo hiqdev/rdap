@@ -1,14 +1,14 @@
 <?php
 
 
-namespace hiqdev\rdap\core\Constant\Relations;
+namespace hiqdev\rdap\core\Constant;
 
 
 use MabeEnum\Enum;
 
 /**
- * Class DefaultRelation
- * @package hiqdev\rdap\core\Constant\Relations
+ * Class Relation
+ * @package hiqdev\rdap\core\Constant
  *
  * @method static self REGISTRATION()
  * @method static self UNREGISTERED()
@@ -16,8 +16,9 @@ use MabeEnum\Enum;
  * @method static self OPEN_REGISTRATION()
  * @method static self CONJOINED()
  */
-class DefaultRelation extends Enum
+class Relation extends Enum
 {
+    public const BASIC                      = 'BASIC';
     public const REGISTERED                 = 'REGISTERED';
     public const UNREGISTERED               = 'UNREGISTERED';
     public const RESTRICTED_REGISTRATION    = 'RESTRICTED REGISTRATION';

@@ -2,6 +2,8 @@
 
 namespace hiqdev\rdap\core\ValueObject\DomainVariant;
 
+use hiqdev\rdap\core\Constant\Relation;
+
 final class Variant
 {
     /**
@@ -24,9 +26,9 @@ final class Variant
     /**
      * Variant constructor.
      *
-     * @param array $relations
+     * @param Relation[] $relations
      * @param string $idnTable
-     * @param array $variantNames
+     * @param Name[] $variantNames
      */
     public function __construct(array $relations, string $idnTable, array $variantNames = [])
     {
