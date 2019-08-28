@@ -3,20 +3,27 @@
 namespace hiqdev\rdap\core\ValueObject\DomainVariant;
 
 
-use hiqdev\rdap\core\Constant\Relations\DefaultRelation;
+use hiqdev\rdap\core\Constant\Relation;
 
 class RelationFactory
 {
     /**
+     * RelationFactory constructor.
+     */
+    private function __construct()
+    {
+    }
+
+    /**
      * @param string $relation
-     * @return DefaultRelation|BasicRelation
+     * @return Relation
      */
     public static function Of(string $relation): object
     {
         try {
-            return DefaultRelation::$relation();
+            return Relation::$relation();
         } catch (\InvalidArgumentException $e) {
-            return new BasicRelation($relation);
+            return Relation::BASIC();
         }
     }
 }
