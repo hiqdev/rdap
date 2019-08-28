@@ -4,7 +4,7 @@
 namespace hiqdev\rdap\core\ValueObject\SecureDNS;
 
 
-use hiqdev\rdap\core\Entity\Link;
+use hiqdev\rdap\core\ValueObject\Link;
 use hiqdev\rdap\core\ValueObject\Event;
 
 /**

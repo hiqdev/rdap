@@ -7,6 +7,7 @@ use hiqdev\rdap\core\Constant\Status;
 use hiqdev\rdap\core\ValueObject\DomainName;
 use hiqdev\rdap\core\ValueObject\Event;
 use hiqdev\rdap\core\ValueObject\Notice;
+use hiqdev\rdap\core\ValueObject\Link;
 
 abstract class Common
 {
