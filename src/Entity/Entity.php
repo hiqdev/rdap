@@ -4,9 +4,9 @@ namespace hiqdev\rdap\core\Entity;
 
 use hiqdev\rdap\core\Constant\ObjectClassName;
 use hiqdev\rdap\core\Constant\Role;
-use hiqdev\rdap\core\ValueObject\DomainName;
 use hiqdev\rdap\core\ValueObject\Event;
 use hiqdev\rdap\core\ValueObject\PublicId;
+use Sabre\VObject\Component\VCard;
 
 final class Entity extends Common
 {
@@ -30,7 +30,7 @@ final class Entity extends Common
     private $handle;
 
     /**
-     * @var Contact|null a jCard with the entity's contact information
+     * @var VCard[]|null a jCard with the entity's VCard information
      */
     private $vcardArray;
 
@@ -59,8 +59,7 @@ final class Entity extends Common
      */
     private $entities;
 
-    public function __construct(
-    ) {
+    public function __construct() {
         parent::__construct(ObjectClassName::ENTITY());
     }
 
@@ -72,5 +71,106 @@ final class Entity extends Common
         return $this->handle;
     }
 
+    /**
+     * @param string|null $handle
+     */
+    public function setHandle(?string $handle): void
+    {
+        $this->handle = $handle;
+    }
 
+    /**
+     * @return VCard[]|null
+     */
+    public function getVcardArray(): ?array
+    {
+        return $this->vcardArray;
+    }
+
+    /**
+     * @param VCard $vcard
+     */
+    public function addVcard(VCard $vcard): void
+    {
+        if (empty($this->vcardArray)) {
+            $this->vcardArray = [];
+        }
+        $this->vcardArray[] = $vcard;
+    }
+
+    /**
+     * @param Entity $entity
+     */
+    public function addEntity(Entity $entity): void
+    {
+        if (empty($this->entities)) {
+            $this->entities = [];
+        }
+        $this->entities[] = $entity;
+    }
+
+    /**
+     * @return Entity[]
+     */
+    public function getEntities(): array
+    {
+        return $this->entities;
+    }
+
+    /**
+     * @return Role[]|null
+     */
+    public function getRoles(): ?array
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param Role $role
+     */
+    public function addRole(Role $role): void
+    {
+        if (empty($this->roles)) {
+            $this->roles = [];
+        }
+        $this->roles[] = $role;
+    }
+
+    /**
+     * @return Event[]|null
+     */
+    public function getAsEventActor(): ?array
+    {
+        return $this->asEventActor;
+    }
+
+    /**
+     * @param Event $event
+     */
+    public function addAsEventActor(Event $event): void
+    {
+        if (empty($this->asEventActor)) {
+            $this->asEventActor = [];
+        }
+        $this->asEventActor[] = $event;
+    }
+
+    /**
+     * @return PublicId[]|null
+     */
+    public function getPublicIds(): ?array
+    {
+        return $this->publicIds;
+    }
+
+    /**
+     * @param PublicId $publicId
+     */
+    public function addPublicId(PublicId $publicId): void
+    {
+        if (empty($this->publicIds)) {
+            $this->publicIds = [];
+        }
+        $this->publicIds[] = $publicId;
+    }
 }

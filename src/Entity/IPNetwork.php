@@ -81,6 +81,11 @@ class IPNetwork extends Common
         return $this->handle;
     }
 
+    public function setHandle(string $handle): void
+    {
+        $this->handle = $handle;
+    }
+
     /**
      * @return string|null
      */
@@ -103,5 +108,24 @@ class IPNetwork extends Common
     public function setEndAddress(?InetAddress $endAddress): void
     {
         $this->endAddress = $endAddress;
+    }
+
+    /**
+     * @param Entity $entity
+     */
+    public function addEntities(Entity $entity): void
+    {
+        if (empty($this->entities)) {
+            $this->entities = [];
+        }
+        $this->entities[] = $entity;
+    }
+
+    /**
+     * @return Entity[]|null
+     */
+    public function getEntities(): ?array
+    {
+        return $this->entities;
     }
 }
