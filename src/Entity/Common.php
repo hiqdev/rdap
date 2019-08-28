@@ -164,7 +164,7 @@ abstract class Common
     }
 
     /**
-     * @param Notice[] $notice
+     * @param Notice $notice
      * @return Common
      */
     public function addNotice(Notice $notice): Common

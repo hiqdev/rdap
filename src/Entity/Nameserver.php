@@ -44,6 +44,11 @@ class Nameserver extends Common
         return $this->handle;
     }
 
+    public function setHandle(?string $handle): void
+    {
+        $this->handle = $handle;
+    }
+
     public function getLdhName(): DomainName
     {
         return $this->ldhName;
