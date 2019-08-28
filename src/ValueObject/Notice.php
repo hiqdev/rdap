@@ -2,7 +2,7 @@
 
 namespace hiqdev\rdap\core\ValueObject;
 
-use hiqdev\rdap\core\Entity\Link;
+use hiqdev\rdap\core\ValueObject\Link;
 
 final class Notice
 {
