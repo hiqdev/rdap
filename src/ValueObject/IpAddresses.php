@@ -14,6 +14,10 @@ final class IpAddresses
      */
     private $v6;
 
+    private function __construct()
+    {
+    }
+
     /**
      * @param IpAddress[] $v4
      * @param IpAddress[] $v6
