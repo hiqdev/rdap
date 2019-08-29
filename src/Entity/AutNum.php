@@ -74,6 +74,14 @@ final class AutNum extends Common
     }
 
     /**
+     * @param string|null $handle
+     */
+    public function setHandle(?string $handle): void
+    {
+        $this->handle = $handle;
+    }
+
+    /**
      * @return string|null
      */
     public function getName(): ?string
