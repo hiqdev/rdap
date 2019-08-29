@@ -12,7 +12,10 @@
         "marc-mabe/php-enum": "^4.1",
         "sabre/vobject": "^4.2",
         "ext-mbstring": "*",
-        "ext-intl": "*"
+        "ext-intl": "*",
+        "doctrine/annotations": "^1.7",
+        "symfony/property-info": "^4.3",
+        "symfony/property-access": "^4.3"
     },
     "suggest": {
         "league/fractal": "To transform objects to a JSON structure according to the RFC 7483"
