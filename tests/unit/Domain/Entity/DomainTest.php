@@ -103,6 +103,14 @@ class DomainTest extends TestCase
         $this->assertSame($ipNetwork, $domain->getNetwork());
     }
 
+    public function testHandle(): void
+    {
+        $domain = new Domain(DomainName::of('example.com'));
+        $handle = 'handle';
+        $domain->setHandle($handle);
+        $this->assertSame($handle, $domain->getHandle());
+    }
+
     public function testUnicodeDomain(): void
     {
         $domain = new Domain(DomainName::of('тест.укр'));
