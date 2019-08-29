@@ -15,6 +15,8 @@ use MabeEnum\Enum;
 /**
  * Class Relation.
  *
+ * @method static self BASIC()
+ * @method static self REGISTERED()
  * @method static self REGISTRATION()
  * @method static self UNREGISTERED()
  * @method static self RESTRICTED_REGISTRATION()
