@@ -76,11 +76,30 @@ class IPNetwork extends Common
     /**
      * @return string|null
      */
+    public function getParentHandle(): ?string
+    {
+        return $this->parentHandle;
+    }
+
+    /**
+     * @param string|null $parentHandle
+     */
+    public function setParentHandle(?string $parentHandle): void
+    {
+        $this->parentHandle = $parentHandle;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getHandle(): ?string
     {
         return $this->handle;
     }
 
+    /**
+     * @param string $handle
+     */
     public function setHandle(string $handle): void
     {
         $this->handle = $handle;
@@ -92,6 +111,14 @@ class IPNetwork extends Common
     public function getCountry(): ?string
     {
         return $this->country;
+    }
+
+    /**
+     * @param string|null $country
+     */
+    public function setCountry(?string $country): void
+    {
+        $this->country = $country;
     }
 
     /**
@@ -111,9 +138,25 @@ class IPNetwork extends Common
     }
 
     /**
+     * @return InetAddress|null
+     */
+    public function getEndAddress(): ?InetAddress
+    {
+        return $this->endAddress;
+    }
+
+    /**
+     * @param InetAddress|null $startAddress
+     */
+    public function setStartAddress(?InetAddress $startAddress): void
+    {
+        $this->startAddress = $startAddress;
+    }
+
+    /**
      * @param Entity $entity
      */
-    public function addEntities(Entity $entity): void
+    public function addEntity(Entity $entity): void
     {
         if (empty($this->entities)) {
             $this->entities = [];
