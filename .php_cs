@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<EOF
-Registration Data Access Protocol – core objects implemantation package according to the RFC 7483
+Registration Data Access Protocol – core objects implementation package according to the RFC 7483
 
 @link      https://github.com/hiqdev/rdap
 @package   rdap
