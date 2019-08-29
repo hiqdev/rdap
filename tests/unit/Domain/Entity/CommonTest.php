@@ -72,6 +72,6 @@ class CommonTest extends TestCase
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addStatus($status1);
         $common->addStatus($status2);
-        $this->assertSame([$status1, $status2], $common->getStatus());
+        $this->assertSame([$status1, $status2], $common->getStatuses());
     }
 }
