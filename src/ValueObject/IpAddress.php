@@ -12,4 +12,6 @@ interface IpAddress
      * @return string
      */
     public function getHostAddress(): string;
+
+    public function __toString(): string;
 }

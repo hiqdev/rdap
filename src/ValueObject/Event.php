@@ -26,17 +26,15 @@ final class Event
      */
     private $links = [];
 
-    private function __construct()
+    private function __construct(EventAction $action, DateTimeImmutable $date)
     {
+        $this->action = $action;
+        $this->date = $date;
     }
 
-    public static function occurred(string $action, DateTimeImmutable $date): self
+    public static function occurred(EventAction $action, DateTimeImmutable $date): self
     {
-        $event = new self();
-        $event->action = $action;
-        $event->date = $date;
-
-        return $event;
+        return new self($action, $date);
     }
 
     /**

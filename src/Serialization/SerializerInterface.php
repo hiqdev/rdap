@@ -11,12 +11,18 @@ interface SerializerInterface
 {
     public const FORMAT_JSON = 'json';
 
+    /**
+     * @param object $entity
+     * @param string $targetFormat
+     * @return mixed depending on $targetFormat
+     */
     public function serialize(object $entity, string $targetFormat = self::FORMAT_JSON);
 
     /**
-     * @param string|array $input
+     * @param array|object $input
+     * @param string|null $type
      * @param string $sourceFormat
-     * @return array|string
+     * @return array|object
      */
-    public function deserialize($input, string $sourceFormat = self::FORMAT_JSON);
+    public function deserialize($input, ?string $type = null, string $sourceFormat = self::FORMAT_JSON);
 }

@@ -63,13 +63,15 @@ final class SymfonySerializer implements SerializerInterface
         return $this->serializer->serialize($entity, $targetFormat);
     }
 
-    /**
-     * @param string|array $input
-     * @param string $sourceFormat
-     * @return array|string
-     */
-    public function deserialize($input, string $sourceFormat = self::FORMAT_JSON)
+    public function deserialize($input, ?string $type = null, string $sourceFormat = self::FORMAT_JSON)
     {
-        return $this->serializer->deserialize($input, get_class($input), $sourceFormat);
+        if ($type === null && is_object($input)) {
+            $type = get_class($input);
+        }
+        if ($type === null) {
+            throw new \InvalidArgumentException('Type is was neither passed nor guessed.');
+        }
+
+        return $this->serializer->deserialize($input, $type, $sourceFormat);
     }
 }

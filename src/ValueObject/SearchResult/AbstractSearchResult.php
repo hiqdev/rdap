@@ -11,9 +11,9 @@ use hiqdev\rdap\core\Entity\Nameserver;
 abstract class AbstractSearchResult implements SearchResultInterface
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $rdapConformance;
+    public $rdapConformance = [];
 
     /**
      * @var Nameserver[]|Entity[]|Domain[] $valueSearchResults

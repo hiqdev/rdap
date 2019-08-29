@@ -4,9 +4,7 @@ namespace hiqdev\rdap\core\Serialization\Symfony\Normalizer;
 
 use MabeEnum\Enum;
 use Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface;
-use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use function get_class;
 
 /**
  * Class EnumNormalizer
@@ -30,6 +28,6 @@ final class EnumNormalizer implements NormalizerInterface, CacheableSupportsMeth
     public function normalize($object, $format = null, array $context = [])
     {
         /** @var Enum $object */
-        return $object->getValue();
+        return $object->getValue() ?? $object->getName();
     }
 }

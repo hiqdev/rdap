@@ -4,6 +4,13 @@ namespace hiqdev\rdap\core\ValueObject;
 
 use League\Uri\AbstractUri;
 
+/**
+ * Class Link
+ *
+ * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
+ *
+ * @psalm-suppress DeprecatedInterface
+ */
 final class Link extends AbstractUri
 {
     /**

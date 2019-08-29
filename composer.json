@@ -14,18 +14,15 @@
         "ext-mbstring": "*",
         "ext-intl": "*",
         "doctrine/annotations": "^1.7",
+        "symfony/serializer": "^4.3.4",
         "symfony/property-info": "^4.3",
         "symfony/property-access": "^4.3"
-    },
-    "suggest": {
-        "league/fractal": "To transform objects to a JSON structure according to the RFC 7483"
     },
     "require-dev": {
         "hiqdev/hidev-php": "dev-master",
         "hiqdev/hidev-hiqdev": "dev-master",
-        "league/fractal": "^0.18.0",
-        "symfony/serializer": "^4.3.4",
-        "phpunit/phpunit": "^8.3.4"
+        "phpunit/phpunit": "^8.3.4",
+        "vimeo/psalm": "^3.4"
     },
     "autoload": {
         "psr-4": {

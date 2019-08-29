@@ -57,7 +57,7 @@ final class Entity extends Common
     /**
      * @var Entity[] an array of entity objects as defined by this section
      */
-    private $entities;
+    private $entities = [];
 
     public function __construct() {
         parent::__construct(ObjectClassName::ENTITY());

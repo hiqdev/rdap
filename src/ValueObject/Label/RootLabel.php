@@ -19,7 +19,7 @@ final class RootLabel extends Label
      */
     public static function getInstance(): RootLabel
     {
-        if (self::$instance === null) {
+        if (!isset(self::$instance)) {
             self::$instance = new self('');
         }
 

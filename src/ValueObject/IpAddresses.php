@@ -14,48 +14,45 @@ final class IpAddresses
      */
     private $v6;
 
-    private function __construct()
+    /**
+     * @param IpV4Address[] $v4
+     * @param IpV6Address[] $v6
+     */
+    private function __construct(array $v4, array $v6)
     {
+        $this->v4 = $v4;
+        $this->v6 = $v6;
     }
 
     /**
-     * @param IpAddress[] $v4
-     * @param IpAddress[] $v6
-     * @return IpAddresses
+     * @param IpV4Address[] $v4
+     * @param IpV6Address[] $v6
+     * @return self
      */
     public static function getInstanceByProtocol(array $v4, array $v6): self
     {
-        $self = new self();
-        $self->v4 = $v4;
-        $self->v6 = $v6;
-        return $self;
+        return new self($v4, $v6);
     }
 
     /**
-     * @param \hiqdev\rdap\core\ValueObject\IpAddress[] $inetAddr
-     * @return IpAddresses
+     * @param IpAddress[] $inetAddr
+     * @return self
      */
     public static function getInstanceByInetAddr(array $inetAddr): self
     {
-        $self = new self();
-        if (empty($inetAddr)) {
-            $self->v4 = [];
-            $self->v6 = [];
-        }
-        $IpV4Array = [];
-        $IpV6Array = [];
+        /** @var IpV4Address[] $v4 */
+        $v4 = [];
+        /** @var IpV6Address[] $v6 */
+        $v6 = [];
         foreach ($inetAddr as $address) {
             if ($address instanceof IpV4Address) {
-                $IpV4Array[] = $address->getHostAddress();
-            }
-            if ($address instanceof IpV6Address) {
-                $IpV6Array[] = $address->getHostAddress();
+                $v4[] = $address;
+            } else if ($address instanceof IpV6Address) {
+                $v6[] = $address;
             }
         }
-        $self->v4 = $IpV4Array;
-        $self->v6 = $IpV6Array;
 
-        return $self;
+        return new self($v4, $v6);
     }
 
     /**
