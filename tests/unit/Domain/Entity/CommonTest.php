@@ -5,6 +5,7 @@ namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
 
 use DateTimeImmutable;
+use hiqdev\rdap\core\Constant\EventAction;
 use hiqdev\rdap\core\Constant\ObjectClassName;
 use hiqdev\rdap\core\Constant\Status;
 use hiqdev\rdap\core\Entity\Common;
@@ -41,8 +42,8 @@ class CommonTest extends TestCase
 
     public function testEvents(): void
     {
-        $event1 = Event::occurred('action1', new DateTimeImmutable());
-        $event2 = Event::occurred('action2', new DateTimeImmutable());
+        $event1 = Event::occurred(EventAction::DELETION(), new DateTimeImmutable());
+        $event2 = Event::occurred(EventAction::DELETION(), new DateTimeImmutable());
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addEvent($event1);
         $common->addEvent($event2);

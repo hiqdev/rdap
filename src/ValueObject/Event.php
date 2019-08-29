@@ -4,7 +4,6 @@ namespace hiqdev\rdap\core\ValueObject;
 
 use DateTimeImmutable;
 use hiqdev\rdap\core\Constant\EventAction;
-use hiqdev\rdap\core\ValueObject\Link;
 
 final class Event
 {
@@ -30,7 +29,7 @@ final class Event
     {
     }
 
-    public static function occurred(string $action, DateTimeImmutable $date): self
+    public static function occurred(EventAction $action, DateTimeImmutable $date): self
     {
         $event = new self();
         $event->action = $action;

@@ -2,6 +2,7 @@
 
 namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
+use hiqdev\rdap\core\Constant\EventAction;
 use hiqdev\rdap\core\Constant\Status;
 use hiqdev\rdap\core\Entity\Domain;
 use hiqdev\rdap\core\Entity\Entity;
@@ -67,7 +68,7 @@ class DomainTest extends TestCase
     {
         $domain = new Domain(DomainName::of('example.com'));
         $eventArr = [
-            Event::occurred('action', new \DateTimeImmutable())
+            Event::occurred(EventAction::DELETION(), new \DateTimeImmutable())
         ];
         $linkArr = [
             new Link('scheme'),

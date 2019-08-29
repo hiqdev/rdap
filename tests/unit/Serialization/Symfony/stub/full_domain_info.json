@@ -1,7 +1,39 @@
 {
   "ldhName": "xn--e1aybc.xn--j1amh",
   "unicodeName": "\u0442\u0435\u0441\u0442.\u0443\u043a\u0440",
+  "publicIds": [
+    {
+      "type": "type1",
+      "identifier": "identifier1"
+    },
+    {
+      "type": "type2",
+      "identifier": "identifier2"
+    },
+    {
+      "type": "type3",
+      "identifier": "identifier3"
+    }
+  ],
   "handle": "AS-TEST",
+  "variants": [
+    {
+      "relations": [
+        "REGISTERED",
+        "UNREGISTERED"
+      ],
+      "idnTable": "idnTable1",
+      "variantNames": []
+    },
+    {
+      "relations": [
+        "REGISTERED",
+        "UNREGISTERED"
+      ],
+      "idnTable": "idnTable2",
+      "variantNames": []
+    }
+  ],
   "nameservers": [
     {
       "ldhName": "ns1.example.com",
@@ -20,5 +52,99 @@
       "objectClassName": "nameserver"
     }
   ],
-  "objectClassName": "domain"
+  "secureDNS": {
+    "dsData": [
+      {
+        "digest": "digest",
+        "digestType": 0,
+        "keyTag": 0,
+        "algorythm": 0,
+        "events": [
+          {
+            "action": "DELETION",
+            "date": "2019-08-29T15:49:26+00:00",
+            "links": []
+          }
+        ],
+        "links": [
+          "scheme:"
+        ]
+      }
+    ],
+    "keyData": [
+      {
+        "publicKey": "pb_key",
+        "flags": "flags",
+        "protocol": "protocol",
+        "algorythm": 0,
+        "events": [
+          {
+            "action": "DELETION",
+            "date": "2019-08-29T15:49:26+00:00",
+            "links": []
+          }
+        ],
+        "links": [
+          "scheme:"
+        ]
+      }
+    ],
+    "maxSigLife": 10,
+    "delegationSigned": true,
+    "zoneSigned": true
+  },
+  "network": {
+    "objectClassName": "ipnetwork",
+    "statuses": [
+      "active"
+    ]
+  },
+  "links": [
+    "scheme1:",
+    "scheme2:\/\/user@"
+  ],
+  "remarks": [
+    {
+      "title": "tittle1",
+      "type": "type1",
+      "description": "description1",
+      "links": []
+    },
+    {
+      "title": "tittle2",
+      "type": "type2",
+      "description": "description2",
+      "links": []
+    },
+    {
+      "title": "tittle3",
+      "type": "type3",
+      "description": "description3",
+      "links": []
+    }
+  ],
+  "lang": "english",
+  "objectClassName": "domain",
+  "events": [
+    {
+      "action": "DELETION",
+      "date": "2019-08-29T15:49:26+00:00",
+      "links": []
+    },
+    {
+      "action": "DELETION",
+      "date": "2019-08-29T15:49:26+00:00",
+      "links": []
+    },
+    {
+      "action": "DELETION",
+      "date": "2019-08-29T15:49:26+00:00",
+      "links": []
+    }
+  ],
+  "port43": "ns1.example.com",
+  "statuses": [
+    "active",
+    "locked"
+  ]
 }

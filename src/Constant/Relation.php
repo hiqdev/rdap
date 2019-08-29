@@ -10,7 +10,8 @@ use MabeEnum\Enum;
  * Class Relation
  * @package hiqdev\rdap\core\Constant
  *
- * @method static self REGISTRATION()
+ * @method static self BASIC()
+ * @method static self REGISTERED()
  * @method static self UNREGISTERED()
  * @method static self RESTRICTED_REGISTRATION()
  * @method static self OPEN_REGISTRATION()

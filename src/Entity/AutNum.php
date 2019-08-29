@@ -5,8 +5,6 @@ namespace hiqdev\rdap\core\Entity;
 
 
 use hiqdev\rdap\core\Constant\ObjectClassName;
-use hiqdev\rdap\core\ValueObject\DomainName;
-use hiqdev\rdap\core\ValueObject\Event;
 
 final class AutNum extends Common
 {
