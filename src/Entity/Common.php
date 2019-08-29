@@ -133,7 +133,7 @@ abstract class Common
     /**
      * @return Status[]|null
      */
-    public function getStatus(): ?array
+    public function getStatuses(): ?array
     {
         return $this->status;
     }
@@ -233,7 +233,10 @@ abstract class Common
      */
     public function addStatus(Status $status): Common
     {
-        $this->status = $status;
+        if (empty($this->status)) {
+            $this->status = [];
+        }
+        $this->status[] = $status;
 
         return $this;
     }
