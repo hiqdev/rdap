@@ -5,6 +5,7 @@ namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
 
 use DateTimeImmutable;
+use hiqdev\rdap\core\Constant\EventAction;
 use hiqdev\rdap\core\Constant\Role;
 use hiqdev\rdap\core\Entity\Entity;
 use hiqdev\rdap\core\ValueObject\Event;
@@ -74,8 +75,8 @@ class EntityTest extends TestCase
 
     public function testAsEventActor(): void
     {
-        $event1 = Event::occurred('action1', new DateTimeImmutable());
-        $event2 = Event::occurred('action2', new DateTimeImmutable());
+        $event1 = Event::occurred(EventAction::REGISTRATION(), new DateTimeImmutable());
+        $event2 = Event::occurred(EventAction::LAST_CHANGED(), new DateTimeImmutable());
         $entity = new Entity();
         $entity->addAsEventActor($event1);
         $entity->addAsEventActor($event2);
