@@ -65,6 +65,11 @@ final class Domain extends Common
         return $this->ldhName;
     }
 
+    public function getUnicodeName(): DomainName
+    {
+        return $this->ldhName->toUnicode();
+    }
+
     /**
      * @return PublicId[]|null
      */
