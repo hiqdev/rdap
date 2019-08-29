@@ -1,4 +1,12 @@
 <?php
+/**
+ * Registration Data Access Protocol – core objects implemantation package according to the RFC 7483
+ *
+ * @link      https://github.com/hiqdev/rdap
+ * @package   rdap
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
@@ -8,12 +16,12 @@ use hiqdev\rdap\core\Entity\Domain;
 use hiqdev\rdap\core\Entity\Entity;
 use hiqdev\rdap\core\Entity\IPNetwork;
 use hiqdev\rdap\core\Entity\Nameserver;
-use hiqdev\rdap\core\ValueObject\Link;
 use hiqdev\rdap\core\ValueObject\DomainName;
 use hiqdev\rdap\core\ValueObject\DomainVariant\Name;
 use hiqdev\rdap\core\ValueObject\DomainVariant\Variant;
 use hiqdev\rdap\core\ValueObject\Event;
 use hiqdev\rdap\core\ValueObject\IpAddresses;
+use hiqdev\rdap\core\ValueObject\Link;
 use hiqdev\rdap\core\ValueObject\PublicId;
 use hiqdev\rdap\core\ValueObject\SecureDNS;
 use PHPUnit\Framework\TestCase;
@@ -23,7 +31,7 @@ class DomainTest extends TestCase
     public function testLdhName(): void
     {
         $domain = new Domain(DomainName::of('example.com'));
-        $this->assertSame('example.com', (string)$domain->getLdhName());
+        $this->assertSame('example.com', (string) $domain->getLdhName());
     }
 
     public function testNameserver(): void
@@ -68,7 +76,7 @@ class DomainTest extends TestCase
     {
         $domain = new Domain(DomainName::of('example.com'));
         $eventArr = [
-            Event::occurred(EventAction::LAST_CHANGED(), new \DateTimeImmutable())
+            Event::occurred(EventAction::LAST_CHANGED(), new \DateTimeImmutable()),
         ];
         $linkArr = [
             new Link('scheme'),
@@ -116,12 +124,12 @@ class DomainTest extends TestCase
     {
         $domain = new Domain(DomainName::of('тест.укр'));
 
-        $this->assertSame('xn--e1aybc.xn--j1amh', (string)$domain->getLdhName());
-        $this->assertSame('тест.укр', (string)$domain->getLdhName()->toUnicode());
-        $this->assertSame('xn--e1aybc.xn--j1amh', (string)$domain->getLdhName()->toLDH());
+        $this->assertSame('xn--e1aybc.xn--j1amh', (string) $domain->getLdhName());
+        $this->assertSame('тест.укр', (string) $domain->getLdhName()->toUnicode());
+        $this->assertSame('xn--e1aybc.xn--j1amh', (string) $domain->getLdhName()->toLDH());
 
-        $this->assertSame('тест.укр.', (string)$domain->getLdhName()->toUnicode()->toFQDN());
-        $this->assertSame('xn--e1aybc.xn--j1amh.', (string)$domain->getLdhName()->toFQDN());
-        $this->assertSame('xn--e1aybc.xn--j1amh.', (string)$domain->getLdhName()->toLDH()->toFQDN());
+        $this->assertSame('тест.укр.', (string) $domain->getLdhName()->toUnicode()->toFQDN());
+        $this->assertSame('xn--e1aybc.xn--j1amh.', (string) $domain->getLdhName()->toFQDN());
+        $this->assertSame('xn--e1aybc.xn--j1amh.', (string) $domain->getLdhName()->toLDH()->toFQDN());
     }
 }

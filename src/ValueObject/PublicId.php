@@ -1,9 +1,17 @@
 <?php
+/**
+ * Registration Data Access Protocol – core objects implemantation package according to the RFC 7483
+ *
+ * @link      https://github.com/hiqdev/rdap
+ * @package   rdap
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\rdap\core\ValueObject;
 
 /**
- * Class PublicId
+ * Class PublicId.
  *
  * This data structure maps a public identifier to an object class.  It
  * is named "publicIds" and is an array of objects, with each object

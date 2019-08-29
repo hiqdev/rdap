@@ -1,11 +1,46 @@
 {
     "name": "hiqdev/rdap",
-    "type": "library",
-    "description": "Registration Data Access Protocol (RDAP) - core domain entities implementation in PHP",
+    "type": "project",
+    "description": "Registration Data Access Protocol – core objects implemantation package accodring to the RFC 7483",
     "keywords": [
         "rdap",
         "php",
         "whois"
+    ],
+    "homepage": "https://github.com/hiqdev/rdap",
+    "license": "BSD-3-Clause",
+    "support": {
+        "email": "support@hiqdev.com",
+        "source": "https://github.com/hiqdev/rdap",
+        "issues": "https://github.com/hiqdev/rdap/issues",
+        "wiki": "https://github.com/hiqdev/rdap/wiki",
+        "forum": "http://forum.hiqdev.com/"
+    },
+    "authors": [
+        {
+            "name": "Andrii Vasyliev",
+            "role": "Project lead",
+            "email": "sol@hiqdev.com",
+            "homepage": "http://hipanel.com/"
+        },
+        {
+            "name": "Dmitry Naumenko",
+            "role": "Lead backend developer",
+            "email": "d.naumenko.a@gmail.com",
+            "homepage": "http://silverfire.me/"
+        },
+        {
+            "name": "Andrey Klochok",
+            "role": "Lead frontend developer",
+            "email": "andreyklochok@gmail.com",
+            "homepage": "http://hiqdev.com/"
+        },
+        {
+            "name": "Yuriy Myronchuk",
+            "role": "QA Lead",
+            "email": "bladeroot@gmail.com",
+            "homepage": "http://hiqdev.com/"
+        }
     ],
     "require": {
         "league/uri": "^5.3",
@@ -19,6 +54,7 @@
         "symfony/property-access": "^4.3"
     },
     "require-dev": {
+        "hiqdev/hidev": "dev-master",
         "hiqdev/hidev-php": "dev-master",
         "hiqdev/hidev-hiqdev": "dev-master",
         "phpunit/phpunit": "^8.3.4",
@@ -33,5 +69,11 @@
         "psr-4": {
             "hiqdev\\rdap\\core\\tests\\": "tests"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }

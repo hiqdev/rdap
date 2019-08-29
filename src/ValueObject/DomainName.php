@@ -1,10 +1,19 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+/**
+ * Registration Data Access Protocol – core objects implemantation package according to the RFC 7483
+ *
+ * @link      https://github.com/hiqdev/rdap
+ * @package   rdap
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\rdap\core\ValueObject;
 
 use ArgumentCountError;
 use hiqdev\rdap\core\ValueObject\Label\Label;
-use hiqdev\rdap\core\ValueObject\Label\LDHLabel;
 use hiqdev\rdap\core\ValueObject\Label\RootLabel;
 use InvalidArgumentException;
 
@@ -42,6 +51,7 @@ final class DomainName
         foreach (explode('.', $domainName) as $label) {
             $builder[] = Label::of($label);
         }
+
         return new DomainName($builder);
     }
 
@@ -52,6 +62,7 @@ final class DomainName
         }
         $labels = $this->labels;
         $labels[] = RootLabel::getInstance();
+
         return new DomainName($labels);
     }
 
@@ -110,7 +121,8 @@ final class DomainName
         if ($other === $this) {
             return true;
         }
-        return (string)$this->toLDH() === (string)$other->toLDH();
+
+        return (string) $this->toLDH() === (string) $other->toLDH();
     }
 
     public function hashCode(): string

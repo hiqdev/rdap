@@ -1,5 +1,5 @@
 package:
     type: project
     name: rdap
-    title: Rdap
-    keywords: rdap
+    title: Registration Data Access Protocol – core objects implemantation package according to the RFC 7483
+    keywords: rdap, php, whois

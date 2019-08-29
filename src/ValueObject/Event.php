@@ -1,10 +1,19 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+/**
+ * Registration Data Access Protocol – core objects implemantation package according to the RFC 7483
+ *
+ * @link      https://github.com/hiqdev/rdap
+ * @package   rdap
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\rdap\core\ValueObject;
 
 use DateTimeImmutable;
 use hiqdev\rdap\core\Constant\EventAction;
-use hiqdev\rdap\core\ValueObject\Link;
 
 final class Event
 {

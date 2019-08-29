@@ -1,11 +1,17 @@
 <?php
-
+/**
+ * Registration Data Access Protocol – core objects implemantation package according to the RFC 7483
+ *
+ * @link      https://github.com/hiqdev/rdap
+ * @package   rdap
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\rdap\core\ValueObject\SecureDNS;
 
-
-use hiqdev\rdap\core\ValueObject\Link;
 use hiqdev\rdap\core\ValueObject\Event;
+use hiqdev\rdap\core\ValueObject\Link;
 
 /**
  * Class DSData -- that can be one of the following members:
@@ -21,10 +27,8 @@ use hiqdev\rdap\core\ValueObject\Event;
  *  field of a DNS DS record as specified by RFC 4034 in
  *  presentation format
  *  +  events -- see Section 4.5
- *  +  links -- see Section 4.2
- * @package hiqdev\rdap\core\ValueObject\SecureDNS
+ *  +  links -- see Section 4.2.
  */
-
 class DSData extends AbstractData
 {
     /**
