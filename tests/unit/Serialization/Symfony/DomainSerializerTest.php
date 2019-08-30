@@ -142,8 +142,14 @@ class DomainSerializerTest extends TestCase
 
     private function addLinks(Domain $domain): void
     {
-        $domain->addLink(new Link('scheme1'));
-        $domain->addLink(new Link('scheme2', 'user'));
+        $link1 = new Link('kek.ua');
+        $link1->setType('application/json');
+        $link1->setTitle('title');
+        $link2 = new Link('google.com');
+        $link2->setType('plain/text');
+        $link2->setTitle('new tittle');
+        $domain->addLink($link1);
+        $domain->addLink($link2);
     }
 
     private function addRemarks(Domain $domain): void

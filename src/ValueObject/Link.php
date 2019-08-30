@@ -12,31 +12,167 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\ValueObject;
 
-use League\Uri\AbstractUri;
-
 /**
  * Class Link.
  *
  * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
  *
- * @psalm-suppress DeprecatedInterface
  */
-final class Link extends AbstractUri
+final class Link
 {
     /**
-     * Link constructor.
-     * @param string|null $scheme
-     * @param string|null $user
-     * @param string|null $pass
-     * @param string|null $host
-     * @param int|null $port
-     * @param string $path
-     * @param string|null $query
-     * @param string|null $fragment
+     * @var string|null
+     * "value" : "http://example.com/context_uri"
      */
-    public function __construct(string $scheme = null, string $user = null, string $pass = null, string $host = null, int $port = null, string $path = '', string $query = null, string $fragment = null)
+    private $value;
+
+    /**
+     * @var string|null
+     * "rel" : "self" | "up"
+     */
+    private $rel;
+    /**
+     * @var string
+     * "href" : "http://example.com/target_uri",
+     */
+    private $href;
+    /**
+     * @var string[]|null
+     * "hreflang" : [ "en", "ch" ],
+     */
+    private $hreflang;
+    /**
+     * @var string|null
+     * "title" : "title",
+     */
+    private $title;
+    /**
+     * @var string|null
+     * "media" : "screen",
+     */
+    private $media;
+    /**
+     * @var string|null
+     * "type" : "application/json"
+     */
+    private $type;
+
+    /**
+     * Link constructor.
+     * @param string $href
+     */
+    public function __construct(string $href)
     {
-        parent::__construct($scheme, $user, $pass, $host, $port, $path, $query, $fragment);
+        $this->href = $href;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHref(): string
+    {
+        return $this->href;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMedia(): ?string
+    {
+        return $this->media;
+    }
+
+    /**
+     * @param string $media
+     */
+    public function setMedia(string $media): void
+    {
+        $this->media = $media;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getHreflang(): ?array
+    {
+        return $this->hreflang;
+    }
+
+    /**
+     * @param string $hrefLang
+     * @return Link
+     */
+    public function addHrefLang(string $hrefLang): self
+    {
+        if (empty($this->hreflang)) {
+            $this->hreflang = [];
+        }
+        $this->hreflang[] = $hrefLang;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getValue(): ?string
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setValue(string $value): void
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getRel(): ?string
+    {
+        return $this->rel;
+    }
+
+    /**
+     * @param string $rel
+     */
+    public function setRel(string $rel): void
+    {
+        $this->rel = $rel;
     }
 
     /**

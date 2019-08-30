@@ -68,7 +68,9 @@
           }
         ],
         "links": [
-          "scheme:"
+          {
+            "href": "scheme"
+          }
         ]
       }
     ],
@@ -87,7 +89,9 @@
           }
         ],
         "links": [
-          "scheme:"
+          {
+            "href": "scheme"
+          }
         ]
       }
     ],
@@ -102,8 +106,16 @@
     ]
   },
   "links": [
-    "scheme1:",
-    "scheme2:\/\/user@"
+    {
+      "href": "kek.ua",
+      "type": "application\/json",
+      "title": "title"
+    },
+    {
+      "href": "google.com",
+      "type": "plain\/text",
+      "title": "new tittle"
+    }
   ],
   "remarks": [
     {

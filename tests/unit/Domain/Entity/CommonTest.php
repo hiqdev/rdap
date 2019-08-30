@@ -25,8 +25,12 @@ class CommonTest extends TestCase
 {
     public function testLinks(): void
     {
-        $link1 = new Link('scheme1');
-        $link2 = new Link('scheme2');
+        $link1 = new Link('kek.ua');
+        $link1->setType('application/json');
+        $link1->setTitle('title');
+        $link2 = new Link('kek.ua');
+        $link2->setType('application/json');
+        $link2->setTitle('title');
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addLink($link1);
         $common->addLink($link2);
