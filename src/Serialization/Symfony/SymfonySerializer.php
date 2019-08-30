@@ -15,6 +15,7 @@ namespace hiqdev\rdap\core\Serialization\Symfony;
 use Doctrine\Common\Annotations\AnnotationReader;
 use hiqdev\rdap\core\Serialization\SerializerInterface;
 use hiqdev\rdap\core\Serialization\Symfony\Normalizer\AsStringNormalizer;
+use hiqdev\rdap\core\Serialization\Symfony\Normalizer\DomainNormalizer;
 use hiqdev\rdap\core\Serialization\Symfony\Normalizer\EnumNormalizer;
 use hiqdev\rdap\core\Serialization\Symfony\Normalizer\VcardNormalizer;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
@@ -57,6 +58,7 @@ final class SymfonySerializer implements SerializerInterface
         $serializer = new Serializer([
             new ArrayDenormalizer(),
 
+            new DomainNormalizer(),
             new DateTimeNormalizer(),
             new EnumNormalizer(),
             new VcardNormalizer(),

@@ -31,16 +31,23 @@ use hiqdev\rdap\core\ValueObject\Notice;
 use hiqdev\rdap\core\ValueObject\PublicId;
 use hiqdev\rdap\core\ValueObject\SecureDNS;
 use JeroenDesloovere\VCard\VCard;
+use JeroenDesloovere\VCard\VCardDateMock;
+use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\TestCase;
 
 class DomainSerializerTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        VCardDateMock::setDate(new DateTimeImmutable('2011-01-10 10:20:30'));
+    }
+
     private function getSerializer(): SymfonySerializer
     {
         return new SymfonySerializer();
     }
 
-    public function testSerialization()
+    public function testSerialization(): void
     {
         $domain = new Domain(DomainName::of('тест.укр'));
         $this->fillDomainWithTestData($domain);
@@ -48,6 +55,16 @@ class DomainSerializerTest extends TestCase
         $stubFilename = __DIR__ . '/stub/full_domain_info.json';
 //        file_put_contents($stubFilename, $json);
         $this->assertJsonStringEqualsJsonFile($stubFilename, $json);
+    }
+
+    public function testDeserialization(): void
+    {
+        $domain = new Domain(DomainName::of('тест.укр'));
+        $this->fillDomainWithTestData($domain);
+        $serializer = $this->getSerializer();
+        $json = $serializer->serialize($domain);
+        $deserialized = $serializer->deserialize($json, Domain::class);
+        assertSame($domain, $deserialized);
     }
 
     private function fillDomainWithTestData(Domain $domain): void
@@ -179,6 +196,7 @@ class DomainSerializerTest extends TestCase
         $vcard->addPhoneNumber('+380931234567');
         $vcard->addName('Doe', 'John');
         $vcard->addCompany('Acme Inc');
+//        $vcard->add
 
         $entity1->addVcard($vcard);
         $domain->addEntity($entity1);
