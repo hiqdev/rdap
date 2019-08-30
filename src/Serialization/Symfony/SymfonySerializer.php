@@ -16,6 +16,7 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use hiqdev\rdap\core\Serialization\SerializerInterface;
 use hiqdev\rdap\core\Serialization\Symfony\Normalizer\AsStringNormalizer;
 use hiqdev\rdap\core\Serialization\Symfony\Normalizer\EnumNormalizer;
+use hiqdev\rdap\core\Serialization\Symfony\Normalizer\VcardNormalizer;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
@@ -58,6 +59,7 @@ final class SymfonySerializer implements SerializerInterface
 
             new DateTimeNormalizer(),
             new EnumNormalizer(),
+            new VcardNormalizer(),
             new AsStringNormalizer(),
 
             $objectNormalizer,

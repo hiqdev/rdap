@@ -30,8 +30,8 @@ use hiqdev\rdap\core\ValueObject\Link;
 use hiqdev\rdap\core\ValueObject\Notice;
 use hiqdev\rdap\core\ValueObject\PublicId;
 use hiqdev\rdap\core\ValueObject\SecureDNS;
+use JeroenDesloovere\VCard\VCard;
 use PHPUnit\Framework\TestCase;
-use Sabre\VObject\Component\VCard;
 
 class DomainSerializerTest extends TestCase
 {
@@ -173,12 +173,14 @@ class DomainSerializerTest extends TestCase
 
         $entity2 = clone $entity1;
         $entity1->addEntity($entity2);
-//        $vCard = new VCard([
-//            'FN'  => 'Cowboy Kek',
-//            'TEL' => '8 800 5555 35',
-//            'N'   => ['Kek', 'Cowboy', '', 'Drs.', 'MD'],
-//        ]);
-//        $entity1->addVcard(new VCard());
+
+        $vcard = new VCard();
+        $vcard->addEmail('text@example.com');
+        $vcard->addPhoneNumber('+380931234567');
+        $vcard->addName('Doe', 'John');
+        $vcard->addCompany('Acme Inc');
+
+        $entity1->addVcard($vcard);
         $domain->addEntity($entity1);
     }
 }
