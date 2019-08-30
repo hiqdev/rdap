@@ -46,7 +46,7 @@ class DomainSerializerTest extends TestCase
         $this->fillDomainWithTestData($domain);
         $json = $this->getSerializer()->serialize($domain);
         $stubFilename = __DIR__ . '/stub/full_domain_info.json';
-        file_put_contents($stubFilename, $json);
+//        file_put_contents($stubFilename, $json);
         $this->assertJsonStringEqualsJsonFile($stubFilename, $json);
     }
 
