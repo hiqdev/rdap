@@ -43,7 +43,7 @@ class DomainSerializerTest extends TestCase
         $this->fillDomainWithTestData($domain);
         $json = $this->getSerializer()->serialize($domain);
         $stubFilename = __DIR__ . '/stub/full_domain_info.json';
-//        file_put_contents($stubFilename, $json);
+        file_put_contents($stubFilename, $json);
         $this->assertJsonStringEqualsJsonFile($stubFilename, $json);
     }
 
@@ -89,7 +89,7 @@ class DomainSerializerTest extends TestCase
     private function setSecureDNS(Domain $domain): void
     {
         $eventArr = [
-            Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 11:12:13')),
+            Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 11:12:13')),
         ];
         $linkArr = [
             new Link('scheme'),
@@ -130,9 +130,9 @@ class DomainSerializerTest extends TestCase
 
     private function addEvents(Domain $domain): void
     {
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
     }
 
     private function setPort43(Domain $domain): void
@@ -148,8 +148,8 @@ class DomainSerializerTest extends TestCase
 
     private function addRemarks(Domain $domain): void
     {
-        $domain->addRemark(new Notice('tittle1', 'type1', 'description1'));
-        $domain->addRemark(new Notice('tittle2', 'type2', 'description2'));
-        $domain->addRemark(new Notice('tittle3', 'type3', 'description3'));
+        $domain->addRemark(new Notice('tittle1', 'type1', ['description1']));
+        $domain->addRemark(new Notice('tittle2', 'type2', ['description2']));
+        $domain->addRemark(new Notice('tittle3', 'type3', ['description3']));
     }
 }

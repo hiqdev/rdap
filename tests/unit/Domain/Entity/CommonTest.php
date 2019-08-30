@@ -35,8 +35,8 @@ class CommonTest extends TestCase
 
     public function testNoticesAndRemarks(): void
     {
-        $notice1 = new Notice('title1', 'type1', 'description1');
-        $notice2 = new Notice('title2', 'type2', 'description2');
+        $notice1 = new Notice('title1', 'type1', ['description1']);
+        $notice2 = new Notice('title2', 'type2', ['description2']);
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addNotice($notice1);
         $common->addNotice($notice2);
@@ -48,8 +48,8 @@ class CommonTest extends TestCase
 
     public function testEvents(): void
     {
-        $event1 = Event::occurred(EventAction::REGISTRATION(), new DateTimeImmutable());
-        $event2 = Event::occurred(EventAction::LAST_CHANGED(), new DateTimeImmutable());
+        $event1 = Event::occurred(EventAction::REGISTRATION(), 'actor', new DateTimeImmutable());
+        $event2 = Event::occurred(EventAction::LAST_CHANGED(), 'actor', new DateTimeImmutable());
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addEvent($event1);
         $common->addEvent($event2);

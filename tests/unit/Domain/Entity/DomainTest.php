@@ -76,7 +76,7 @@ class DomainTest extends TestCase
     {
         $domain = new Domain(DomainName::of('example.com'));
         $eventArr = [
-            Event::occurred(EventAction::LAST_CHANGED(), new \DateTimeImmutable()),
+            Event::occurred(EventAction::LAST_CHANGED(), 'actor', new \DateTimeImmutable()),
         ];
         $linkArr = [
             new Link('scheme'),
