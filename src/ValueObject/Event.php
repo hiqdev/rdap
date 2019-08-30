@@ -20,41 +20,31 @@ final class Event
     /**
      * @var EventAction a string denoting the reason for the event
      */
-    private $action;
+    private $eventAction;
     /**
      * @var string|null an optional identifier denoting the actor
      * responsible for the event
      */
-    private $actor;
+    private $eventActor;
     /**
      * @var DateTimeImmutable the time and date the event occurred
      */
-    private $date;
+    private $eventDate;
     /**
      * @var Link[]
      */
     private $links = [];
 
-    private function __construct(EventAction $action, DateTimeImmutable $date)
+    private function __construct(EventAction $eventAction, string $eventActor, DateTimeImmutable $eventDate)
     {
-        $this->action = $action;
-        $this->date = $date;
+        $this->eventAction = $eventAction;
+        $this->eventActor = $eventActor;
+        $this->eventDate = $eventDate;
     }
 
-    public static function occurred(EventAction $action, DateTimeImmutable $date): self
+    public static function occurred(EventAction $action, string $eventActor, DateTimeImmutable $date): self
     {
-        return new self($action, $date);
-    }
-
-    /**
-     * @param string $actor
-     * @return Event
-     */
-    public function setActor(string $actor): self
-    {
-        $this->actor = $actor;
-
-        return $this;
+        return new self($action, $eventActor, $date);
     }
 
     public function addLink(Link $link): self
@@ -67,25 +57,25 @@ final class Event
     /**
      * @return EventAction
      */
-    public function getAction(): EventAction
+    public function getEventAction(): EventAction
     {
-        return $this->action;
+        return $this->eventAction;
     }
 
     /**
      * @return string|null
      */
-    public function getActor(): ?string
+    public function getEventActor(): ?string
     {
-        return $this->actor;
+        return $this->eventActor;
     }
 
     /**
      * @return DateTimeImmutable
      */
-    public function getDate(): DateTimeImmutable
+    public function getEventDate(): DateTimeImmutable
     {
-        return $this->date;
+        return $this->eventDate;
     }
 
     /**

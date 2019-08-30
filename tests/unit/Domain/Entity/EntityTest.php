@@ -16,8 +16,8 @@ use hiqdev\rdap\core\Constant\Role;
 use hiqdev\rdap\core\Entity\Entity;
 use hiqdev\rdap\core\ValueObject\Event;
 use hiqdev\rdap\core\ValueObject\PublicId;
+use JeroenDesloovere\VCard\VCard;
 use PHPUnit\Framework\TestCase;
-use Sabre\VObject\Component\VCard;
 
 class EntityTest extends TestCase
 {
@@ -31,20 +31,22 @@ class EntityTest extends TestCase
 
     public function testVCardArray(): void
     {
-        $vCard1 = new VCard([
-            'FN'  => 'Cowboy Henk',
-            'TEL' => '+1 555 34567 455',
-            'N'   => ['Henk', 'Cowboy', '', 'Dr.', 'MD'],
-        ]);
-        $vCard2 = new VCard([
-            'FN'  => 'Cowboy Kek',
-            'TEL' => '8 800 5555 35',
-            'N'   => ['Kek', 'Cowboy', '', 'Drs.', 'MD'],
-        ]);
+        $vcard1 = new VCard();
+        $vcard1->addEmail('text@example.com');
+        $vcard1->addPhoneNumber('+380931234567');
+        $vcard1->addName('Doe', 'John');
+        $vcard1->addCompany('Acme Inc');
+
+        $vcard2 = new VCard();
+        $vcard2->addEmail('text@example.com');
+        $vcard2->addPhoneNumber('+380931234567');
+        $vcard2->addName('Doe', 'John');
+        $vcard2->addCompany('Acme Inc');
+
         $entity = new Entity();
-        $entity->addVcard($vCard1);
-        $entity->addVcard($vCard2);
-        $this->assertSame([$vCard1, $vCard2], $entity->getVcardArray());
+        $entity->addVcard($vcard1);
+        $entity->addVcard($vcard2);
+        $this->assertSame([$vcard1, $vcard2], $entity->getVcardArray());
     }
 
     public function testEntity(): void
@@ -81,8 +83,8 @@ class EntityTest extends TestCase
 
     public function testAsEventActor(): void
     {
-        $event1 = Event::occurred(EventAction::REGISTRATION(), new DateTimeImmutable());
-        $event2 = Event::occurred(EventAction::LAST_CHANGED(), new DateTimeImmutable());
+        $event1 = Event::occurred(EventAction::REGISTRATION(), 'actor', new DateTimeImmutable());
+        $event2 = Event::occurred(EventAction::LAST_CHANGED(), 'actor', new DateTimeImmutable());
         $entity = new Entity();
         $entity->addAsEventActor($event1);
         $entity->addAsEventActor($event2);

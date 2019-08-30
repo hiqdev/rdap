@@ -15,8 +15,10 @@ namespace hiqdev\rdap\core\tests\unit\Serialization\Symfony;
 use DateTimeImmutable;
 use hiqdev\rdap\core\Constant\EventAction;
 use hiqdev\rdap\core\Constant\Relation;
+use hiqdev\rdap\core\Constant\Role;
 use hiqdev\rdap\core\Constant\Status;
 use hiqdev\rdap\core\Entity\Domain;
+use hiqdev\rdap\core\Entity\Entity;
 use hiqdev\rdap\core\Entity\IPNetwork;
 use hiqdev\rdap\core\Entity\Nameserver;
 use hiqdev\rdap\core\Serialization\Symfony\SymfonySerializer;
@@ -28,16 +30,24 @@ use hiqdev\rdap\core\ValueObject\Link;
 use hiqdev\rdap\core\ValueObject\Notice;
 use hiqdev\rdap\core\ValueObject\PublicId;
 use hiqdev\rdap\core\ValueObject\SecureDNS;
+use JeroenDesloovere\VCard\VCard;
+use JeroenDesloovere\VCard\VCardDateMock;
+use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\TestCase;
 
 class DomainSerializerTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        VCardDateMock::setDate(new DateTimeImmutable('2011-01-10 10:20:30'));
+    }
+
     private function getSerializer(): SymfonySerializer
     {
         return new SymfonySerializer();
     }
 
-    public function testSerialization()
+    public function testSerialization(): void
     {
         $domain = new Domain(DomainName::of('тест.укр'));
         $this->fillDomainWithTestData($domain);
@@ -47,11 +57,22 @@ class DomainSerializerTest extends TestCase
         $this->assertJsonStringEqualsJsonFile($stubFilename, $json);
     }
 
+    public function testDeserialization(): void
+    {
+        $domain = new Domain(DomainName::of('тест.укр'));
+        $this->fillDomainWithTestData($domain);
+        $serializer = $this->getSerializer();
+        $json = $serializer->serialize($domain);
+        $deserialized = $serializer->deserialize($json, Domain::class);
+        assertSame($domain, $deserialized);
+    }
+
     private function fillDomainWithTestData(Domain $domain): void
     {
         $this->setHandle($domain);
         $this->addNameservers($domain);
         $this->addVariants($domain);
+        $this->addEntities($domain);
         $this->setSecureDNS($domain);
         $this->setNetwork($domain);
         $this->setLang($domain);
@@ -89,7 +110,7 @@ class DomainSerializerTest extends TestCase
     private function setSecureDNS(Domain $domain): void
     {
         $eventArr = [
-            Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 11:12:13')),
+            Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 11:12:13')),
         ];
         $linkArr = [
             new Link('scheme'),
@@ -130,9 +151,9 @@ class DomainSerializerTest extends TestCase
 
     private function addEvents(Domain $domain): void
     {
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
     }
 
     private function setPort43(Domain $domain): void
@@ -142,14 +163,42 @@ class DomainSerializerTest extends TestCase
 
     private function addLinks(Domain $domain): void
     {
-        $domain->addLink(new Link('scheme1'));
-        $domain->addLink(new Link('scheme2', 'user'));
+        $link1 = new Link('kek.ua');
+        $link1->setType('application/json');
+        $link1->setTitle('title');
+        $link2 = new Link('google.com');
+        $link2->setType('plain/text');
+        $link2->setTitle('new tittle');
+        $domain->addLink($link1);
+        $domain->addLink($link2);
     }
 
     private function addRemarks(Domain $domain): void
     {
-        $domain->addRemark(new Notice('tittle1', 'type1', 'description1'));
-        $domain->addRemark(new Notice('tittle2', 'type2', 'description2'));
-        $domain->addRemark(new Notice('tittle3', 'type3', 'description3'));
+        $domain->addRemark(new Notice('tittle1', 'type1', ['description1']));
+        $domain->addRemark(new Notice('tittle2', 'type2', ['description2']));
+        $domain->addRemark(new Notice('tittle3', 'type3', ['description3']));
+    }
+    private function addEntities(Domain $domain): void
+    {
+        $entity1 = new Entity();
+        $entity1->addStatus(Status::ACTIVE());;
+        $entity1->setHandle('handle');
+        $entity1->addPublicId(new PublicId('type', 'identifier'));
+        $entity1->addRole(Role::RESELLER());
+        $entity1->addAsEventActor(Event::occurred(EventAction::UNLOCKED(), 'actor', new DateTimeImmutable('2019-07-03 11:12:15')));
+
+        $entity2 = clone $entity1;
+        $entity1->addEntity($entity2);
+
+        $vcard = new VCard();
+        $vcard->addEmail('text@example.com');
+        $vcard->addPhoneNumber('+380931234567');
+        $vcard->addName('Doe', 'John');
+        $vcard->addCompany('Acme Inc');
+//        $vcard->add
+
+        $entity1->addVcard($vcard);
+        $domain->addEntity($entity1);
     }
 }

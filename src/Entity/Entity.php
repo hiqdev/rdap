@@ -14,7 +14,7 @@ use hiqdev\rdap\core\Constant\ObjectClassName;
 use hiqdev\rdap\core\Constant\Role;
 use hiqdev\rdap\core\ValueObject\Event;
 use hiqdev\rdap\core\ValueObject\PublicId;
-use Sabre\VObject\Component\VCard;
+use JeroenDesloovere\VCard\VCard;
 
 final class Entity extends Common
 {

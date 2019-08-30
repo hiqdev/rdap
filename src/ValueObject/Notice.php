@@ -25,7 +25,7 @@ final class Notice
     private $type;
 
     /**
-     * @var string
+     * @var string[]
      */
     private $description;
 
@@ -39,10 +39,10 @@ final class Notice
      *
      * @param string $title
      * @param string $type
-     * @param string $description
+     * @param string[] $description
      * @param Link[] $links
      */
-    public function __construct(string $title, string $type, string $description, array $links = [])
+    public function __construct(string $title, string $type, array $description, array $links = [])
     {
         $this->title = $title;
         $this->type = $type;
@@ -67,9 +67,9 @@ final class Notice
     }
 
     /**
-     * @return string
+     * @return string[]
      */
-    public function getDescription(): string
+    public function getDescription(): array
     {
         return $this->description;
     }

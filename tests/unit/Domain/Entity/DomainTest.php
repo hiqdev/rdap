@@ -41,6 +41,9 @@ class DomainTest extends TestCase
             DomainName::of('ns1.example.com'),
             IpAddresses::getInstanceByInetAddr(['8.8.8.8', '1.1.1.1', 'beef:babe::1'])
         );
+        $handle = 'handle';
+        $ns1->setHandle($handle);
+        $this->assertSame($handle, $ns1->getHandle());
         $ns2 = new Nameserver(
             DomainName::of('ns2.example.com'),
             IpAddresses::getInstanceByInetAddr(['8.8.8.8', '1.1.1.1', 'beef:babe::1'])
@@ -76,7 +79,7 @@ class DomainTest extends TestCase
     {
         $domain = new Domain(DomainName::of('example.com'));
         $eventArr = [
-            Event::occurred(EventAction::LAST_CHANGED(), new \DateTimeImmutable()),
+            Event::occurred(EventAction::LAST_CHANGED(), 'actor', new \DateTimeImmutable()),
         ];
         $linkArr = [
             new Link('scheme'),
