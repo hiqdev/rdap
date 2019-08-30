@@ -15,6 +15,7 @@ namespace hiqdev\rdap\core\tests\unit\Serialization\Symfony;
 use DateTimeImmutable;
 use hiqdev\rdap\core\Constant\EventAction;
 use hiqdev\rdap\core\Constant\Relation;
+use hiqdev\rdap\core\Constant\Role;
 use hiqdev\rdap\core\Constant\Status;
 use hiqdev\rdap\core\Entity\Domain;
 use hiqdev\rdap\core\Entity\Entity;
@@ -30,6 +31,7 @@ use hiqdev\rdap\core\ValueObject\Notice;
 use hiqdev\rdap\core\ValueObject\PublicId;
 use hiqdev\rdap\core\ValueObject\SecureDNS;
 use PHPUnit\Framework\TestCase;
+use Sabre\VObject\Component\VCard;
 
 class DomainSerializerTest extends TestCase
 {
@@ -163,10 +165,20 @@ class DomainSerializerTest extends TestCase
     private function addEntities(Domain $domain): void
     {
         $entity1 = new Entity();
-        $entity1->addStatus(Status::ACTIVE());
-        $entity2 = new Entity();
-        $entity2->addStatus(Status::LOCKED());
+        $entity1->addStatus(Status::ACTIVE());;
+        $entity1->setHandle('handle');
+        $entity1->addPublicId(new PublicId('type', 'identifier'));
+        $entity1->addRole(Role::RESELLER());
+        $entity1->addAsEventActor(Event::occurred(EventAction::UNLOCKED(), 'actor', new DateTimeImmutable()));
+
+        $entity2 = clone $entity1;
+        $entity1->addEntity($entity2);
+//        $vCard = new VCard([
+//            'FN'  => 'Cowboy Kek',
+//            'TEL' => '8 800 5555 35',
+//            'N'   => ['Kek', 'Cowboy', '', 'Drs.', 'MD'],
+//        ]);
+//        $entity1->addVcard(new VCard());
         $domain->addEntity($entity1);
-        $domain->addEntity($entity2);
     }
 }
