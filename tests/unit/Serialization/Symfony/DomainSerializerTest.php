@@ -169,7 +169,7 @@ class DomainSerializerTest extends TestCase
         $entity1->setHandle('handle');
         $entity1->addPublicId(new PublicId('type', 'identifier'));
         $entity1->addRole(Role::RESELLER());
-        $entity1->addAsEventActor(Event::occurred(EventAction::UNLOCKED(), 'actor', new DateTimeImmutable()));
+        $entity1->addAsEventActor(Event::occurred(EventAction::UNLOCKED(), 'actor', new DateTimeImmutable('2019-07-03 11:12:15')));
 
         $entity2 = clone $entity1;
         $entity1->addEntity($entity2);
