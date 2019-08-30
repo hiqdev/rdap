@@ -17,6 +17,7 @@ use hiqdev\rdap\core\Constant\EventAction;
 use hiqdev\rdap\core\Constant\Relation;
 use hiqdev\rdap\core\Constant\Status;
 use hiqdev\rdap\core\Entity\Domain;
+use hiqdev\rdap\core\Entity\Entity;
 use hiqdev\rdap\core\Entity\IPNetwork;
 use hiqdev\rdap\core\Entity\Nameserver;
 use hiqdev\rdap\core\Serialization\Symfony\SymfonySerializer;
@@ -52,6 +53,7 @@ class DomainSerializerTest extends TestCase
         $this->setHandle($domain);
         $this->addNameservers($domain);
         $this->addVariants($domain);
+        $this->addEntities($domain);
         $this->setSecureDNS($domain);
         $this->setNetwork($domain);
         $this->setLang($domain);
@@ -157,5 +159,14 @@ class DomainSerializerTest extends TestCase
         $domain->addRemark(new Notice('tittle1', 'type1', ['description1']));
         $domain->addRemark(new Notice('tittle2', 'type2', ['description2']));
         $domain->addRemark(new Notice('tittle3', 'type3', ['description3']));
+    }
+    private function addEntities(Domain $domain): void
+    {
+        $entity1 = new Entity();
+        $entity1->addStatus(Status::ACTIVE());
+        $entity2 = new Entity();
+        $entity2->addStatus(Status::LOCKED());
+        $domain->addEntity($entity1);
+        $domain->addEntity($entity2);
     }
 }
