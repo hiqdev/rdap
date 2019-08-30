@@ -53,7 +53,9 @@ class CommonTest extends TestCase
     public function testEvents(): void
     {
         $event1 = Event::occurred(EventAction::REGISTRATION(), 'actor', new DateTimeImmutable());
+        $event1->addLink(new Link('google.com'));
         $event2 = Event::occurred(EventAction::LAST_CHANGED(), 'actor', new DateTimeImmutable());
+        $event1->addLink(new Link('google1.com'));
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addEvent($event1);
         $common->addEvent($event2);
@@ -84,5 +86,13 @@ class CommonTest extends TestCase
         $common->addStatus($status1);
         $common->addStatus($status2);
         $this->assertSame([$status1, $status2], $common->getStatuses());
+    }
+
+    public function testRdapConformance(): void
+    {
+        $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
+        $newConf = 'rdap_level_1';
+        $common->addRdapConformance($newConf);
+        $this->assertContains($newConf, $common->getRdapConformance());
     }
 }

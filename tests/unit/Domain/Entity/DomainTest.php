@@ -41,6 +41,9 @@ class DomainTest extends TestCase
             DomainName::of('ns1.example.com'),
             IpAddresses::getInstanceByInetAddr(['8.8.8.8', '1.1.1.1', 'beef:babe::1'])
         );
+        $handle = 'handle';
+        $ns1->setHandle($handle);
+        $this->assertSame($handle, $ns1->getHandle());
         $ns2 = new Nameserver(
             DomainName::of('ns2.example.com'),
             IpAddresses::getInstanceByInetAddr(['8.8.8.8', '1.1.1.1', 'beef:babe::1'])

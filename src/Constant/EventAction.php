@@ -32,14 +32,14 @@ use MabeEnum\Enum;
  */
 final class EventAction extends Enum
 {
-    public const REGISTRATION                 = 'REGISTRATION';
-    public const REREGISTRATION               = 'REREGISTRATION';
-    public const LAST_CHANGED                 = 'LAST_CHANGED';
-    public const EXPIRATION                   = 'EXPIRATION';
-    public const DELETION                     = 'DELETION';
-    public const REINSTANTIATION              = 'REINSTANTIATION';
-    public const TRANSFER                     = 'TRANSFER';
-    public const LOCKED                       = 'LOCKED';
-    public const UNLOCKED                     = 'UNLOCKED';
-    public const LAST_UPDATE_OF_RDAP_DATABASE = 'LAST_UPDATE_OF_RDAP_DATABASE';
+    public const REGISTRATION                 = 'registration';
+    public const REREGISTRATION               = 'reregistration';
+    public const LAST_CHANGED                 = 'last changed';
+    public const EXPIRATION                   = 'expiration';
+    public const DELETION                     = 'deletion';
+    public const REINSTANTIATION              = 'reinstantiation';
+    public const TRANSFER                     = 'transfer';
+    public const LOCKED                       = 'locked';
+    public const UNLOCKED                     = 'unlocked';
+    public const LAST_UPDATE_OF_RDAP_DATABASE = 'last update of RDAP database';
 }
