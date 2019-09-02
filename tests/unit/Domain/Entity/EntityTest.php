@@ -11,11 +11,11 @@
 namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
 use DateTimeImmutable;
-use hiqdev\rdap\core\Constant\EventAction;
-use hiqdev\rdap\core\Constant\Role;
-use hiqdev\rdap\core\Entity\Entity;
-use hiqdev\rdap\core\ValueObject\Event;
-use hiqdev\rdap\core\ValueObject\PublicId;
+use hiqdev\rdap\core\Domain\Constant\EventAction;
+use hiqdev\rdap\core\Domain\Constant\Role;
+use hiqdev\rdap\core\Domain\Entity\Entity;
+use hiqdev\rdap\core\Domain\ValueObject\Event;
+use hiqdev\rdap\core\Domain\ValueObject\PublicId;
 use JeroenDesloovere\VCard\VCard;
 use PHPUnit\Framework\TestCase;
 

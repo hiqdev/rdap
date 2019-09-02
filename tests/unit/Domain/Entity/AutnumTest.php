@@ -10,7 +10,7 @@
 
 namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
-use hiqdev\rdap\core\Entity\AutNum;
+use hiqdev\rdap\core\Domain\Entity\AutNum;
 use PHPUnit\Framework\TestCase;
 
 class AutnumTest extends TestCase

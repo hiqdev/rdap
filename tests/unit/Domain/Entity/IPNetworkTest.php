@@ -10,10 +10,10 @@
 
 namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
-use hiqdev\rdap\core\Constant\Status;
-use hiqdev\rdap\core\Entity\Entity;
-use hiqdev\rdap\core\Entity\IPNetwork;
-use hiqdev\rdap\core\ValueObject\InetAddress;
+use hiqdev\rdap\core\Domain\Constant\Status;
+use hiqdev\rdap\core\Domain\Entity\Entity;
+use hiqdev\rdap\core\Domain\Entity\IPNetwork;
+use hiqdev\rdap\core\Domain\ValueObject\InetAddress;
 use PHPUnit\Framework\TestCase;
 
 class IPNetworkTest extends TestCase

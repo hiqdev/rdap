@@ -10,20 +10,20 @@
 
 namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
-use hiqdev\rdap\core\Constant\EventAction;
-use hiqdev\rdap\core\Constant\Status;
-use hiqdev\rdap\core\Entity\Domain;
-use hiqdev\rdap\core\Entity\Entity;
-use hiqdev\rdap\core\Entity\IPNetwork;
-use hiqdev\rdap\core\Entity\Nameserver;
-use hiqdev\rdap\core\ValueObject\DomainName;
-use hiqdev\rdap\core\ValueObject\DomainVariant\Name;
-use hiqdev\rdap\core\ValueObject\DomainVariant\Variant;
-use hiqdev\rdap\core\ValueObject\Event;
-use hiqdev\rdap\core\ValueObject\IpAddresses;
-use hiqdev\rdap\core\ValueObject\Link;
-use hiqdev\rdap\core\ValueObject\PublicId;
-use hiqdev\rdap\core\ValueObject\SecureDNS;
+use hiqdev\rdap\core\Domain\Constant\EventAction;
+use hiqdev\rdap\core\Domain\Constant\Status;
+use hiqdev\rdap\core\Domain\Entity\Domain;
+use hiqdev\rdap\core\Domain\Entity\Entity;
+use hiqdev\rdap\core\Domain\Entity\IPNetwork;
+use hiqdev\rdap\core\Domain\Entity\Nameserver;
+use hiqdev\rdap\core\Domain\ValueObject\DomainName;
+use hiqdev\rdap\core\Domain\ValueObject\DomainVariant\Name;
+use hiqdev\rdap\core\Domain\ValueObject\DomainVariant\Variant;
+use hiqdev\rdap\core\Domain\ValueObject\Event;
+use hiqdev\rdap\core\Domain\ValueObject\IpAddresses;
+use hiqdev\rdap\core\Domain\ValueObject\Link;
+use hiqdev\rdap\core\Domain\ValueObject\PublicId;
+use hiqdev\rdap\core\Domain\ValueObject\SecureDNS;
 use PHPUnit\Framework\TestCase;
 
 class DomainTest extends TestCase

@@ -11,14 +11,14 @@
 namespace hiqdev\rdap\core\tests\unit\Domain\Entity;
 
 use DateTimeImmutable;
-use hiqdev\rdap\core\Constant\EventAction;
-use hiqdev\rdap\core\Constant\ObjectClassName;
-use hiqdev\rdap\core\Constant\Status;
-use hiqdev\rdap\core\Entity\Common;
-use hiqdev\rdap\core\ValueObject\DomainName;
-use hiqdev\rdap\core\ValueObject\Event;
-use hiqdev\rdap\core\ValueObject\Link;
-use hiqdev\rdap\core\ValueObject\Notice;
+use hiqdev\rdap\core\Domain\Constant\EventAction;
+use hiqdev\rdap\core\Domain\Constant\ObjectClassName;
+use hiqdev\rdap\core\Domain\Constant\Status;
+use hiqdev\rdap\core\Domain\Entity\Common;
+use hiqdev\rdap\core\Domain\ValueObject\DomainName;
+use hiqdev\rdap\core\Domain\ValueObject\Event;
+use hiqdev\rdap\core\Domain\ValueObject\Link;
+use hiqdev\rdap\core\Domain\ValueObject\Notice;
 use PHPUnit\Framework\TestCase;
 
 class CommonTest extends TestCase
