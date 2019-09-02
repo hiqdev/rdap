@@ -25,10 +25,10 @@ use MabeEnum\Enum;
  */
 class Relation extends Enum
 {
-    public const BASIC                      = 'BASIC';
-    public const REGISTERED                 = 'REGISTERED';
-    public const UNREGISTERED               = 'UNREGISTERED';
-    public const RESTRICTED_REGISTRATION    = 'RESTRICTED REGISTRATION';
-    public const OPEN_REGISTRATION          = 'OPEN REGISTRATION';
-    public const CONJOINED                  = 'CONJOINED';
+    public const BASIC                      = 'basic';
+    public const REGISTERED                 = 'registered';
+    public const UNREGISTERED               = 'unregistered';
+    public const RESTRICTED_REGISTRATION    = 'restricted registration';
+    public const OPEN_REGISTRATION          = 'open registration';
+    public const CONJOINED                  = 'conjoined';
 }

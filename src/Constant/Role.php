@@ -31,15 +31,15 @@ use MabeEnum\Enum;
  */
 final class Role extends Enum
 {
-    public const REGISTRANT     = 'REGISTRANT';
-    public const TECHNICAL      = 'TECHNICAL';
-    public const ADMINISTRATIVE = 'ADMINISTRATIVE';
-    public const ABUSE          = 'ABUSE';
-    public const BILLING        = 'BILLING';
-    public const REGISTRAR      = 'REGISTRAR';
-    public const RESELLER       = 'RESELLER';
-    public const SPONSOR        = 'SPONSOR';
-    public const PROXY          = 'PROXY';
-    public const NOTIFICATIONS  = 'NOTIFICATIONS';
-    public const NOC            = 'NOC';
+    public const REGISTRANT     = 'registrant';
+    public const TECHNICAL      = 'technical';
+    public const ADMINISTRATIVE = 'administrative';
+    public const ABUSE          = 'abuse';
+    public const BILLING        = 'billing';
+    public const REGISTRAR      = 'registrar';
+    public const RESELLER       = 'reseller';
+    public const SPONSOR        = 'sponsor';
+    public const PROXY          = 'proxy';
+    public const NOTIFICATIONS  = 'notifications';
+    public const NOC            = 'noc';
 }

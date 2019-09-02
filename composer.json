@@ -45,13 +45,14 @@
     "require": {
         "league/uri": "^5.3",
         "marc-mabe/php-enum": "^4.1",
-        "sabre/vobject": "^4.2",
+        "jeroendesloovere/vcard": "^1.7.2",
         "ext-mbstring": "*",
         "ext-intl": "*",
         "doctrine/annotations": "^1.7",
         "symfony/serializer": "^4.3.4",
         "symfony/property-info": "^4.3",
-        "symfony/property-access": "^4.3"
+        "symfony/property-access": "^4.3",
+        "sabre/vobject": "^4.2.0"
     },
     "require-dev": {
         "hiqdev/hidev": "dev-master",
