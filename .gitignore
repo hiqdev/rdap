@@ -38,3 +38,4 @@ phpunit-skelgen.phar
 phpunit.phar
 
 /lsp
+.phpunit.result.cache
