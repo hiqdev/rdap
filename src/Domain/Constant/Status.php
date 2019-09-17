@@ -68,7 +68,6 @@ final class Status extends Enum
     public const REMOVED                  = 'removed';
     public const OBSCURED                 = 'obscured';
     public const ASSOCIATED               = 'associated';
-    public const ACTIVE                   = 'active';
     public const INACTIVE                 = 'inactive';
     public const LOCKED                   = 'locked';
     public const PENDINGCREATE            = 'pending create';
