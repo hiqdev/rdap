@@ -57,7 +57,7 @@ use MabeEnum\Enum;
  */
 final class Status extends Enum
 {
-    public const OK                       = 'ok';
+    public const OK                       = 'active';
     public const VALIDATED                = 'validated';
     public const RENEWPROHIBITED          = 'renew prohibited';
     public const UPDATEPROHIBITED         = 'update prohibited';
