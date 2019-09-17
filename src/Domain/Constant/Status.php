@@ -17,6 +17,7 @@ use MabeEnum\Enum;
 /**
  * Class Status.
  *
+ * @method static self OK()
  * @method static self VALIDATED()
  * @method static self RENEWPROHIBITED()
  * @method static self UPDATEPROHIBITED()
@@ -56,6 +57,7 @@ use MabeEnum\Enum;
  */
 final class Status extends Enum
 {
+    public const OK                       = 'ok';
     public const VALIDATED                = 'validated';
     public const RENEWPROHIBITED          = 'renew prohibited';
     public const UPDATEPROHIBITED         = 'update prohibited';
