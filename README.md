@@ -23,6 +23,13 @@ The preferred way to install this project is through [composer](http://getcompos
 php composer.phar require hiqdev/rdap:dev-master
 ```
 
+or add
+
+```
+"hiqdev/rdap": "dev-master"
+```
+to the require section of your composer.json.
+
 # Details
 
 This library understands and supports the following RFC's:
