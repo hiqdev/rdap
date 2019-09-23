@@ -58,13 +58,13 @@ We have created a sample project which could help you with your implementation. 
 
     class DomainProvider implements DomainProviderInterface
     {
-        /** @var array */
+        /** @var object */
         private $domainInfo;
         
         public function get(DomainName $domainName): Domain
         {
-            $domain = new Domain(DomainName::of($this->domainInfo['domainName]));
-            $domain->setPort43(DomainName::of($whoisServer));
+            $domain = new Domain(DomainName::of($this->domainInfo->domainName));
+            $domain->setPort43(DomainName::of($this->domainInfo->rdapServer));
             $domain->addEntity($this->domainInfo->getEntity(Role::REGISTRANT()));
             
             return $domain;
