@@ -14,8 +14,6 @@ This PHP library makes it very easy to build an RDAP server that talks with your
 * Include this library in your PHP web application to significantly ease implementing an RDAP server
 * Can be combined with any back-end by simply implementing one or more methods
 * All you need to do is retrieve the data and populate some PHP objects
-* The library takes care of parsing the incoming RDAP requests, calling the right methods and generating JSON responses
-  from those PHP objects
 
 ## Installation
 
