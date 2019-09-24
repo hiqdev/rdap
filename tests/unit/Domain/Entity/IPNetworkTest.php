@@ -32,7 +32,7 @@ class IPNetworkTest extends TestCase
     {
         $ipNetwork = new IPNetwork();
         $entity1 = new Entity();
-        $entity1->addStatus(Status::ACTIVE());
+        $entity1->addStatus(Status::OK());
         $entity2 = new Entity();
         $entity2->addStatus(Status::LOCKED());
         $ipNetwork->addEntity($entity1);

@@ -79,7 +79,7 @@ class DomainTest extends TestCase
     {
         $domain = new Domain(DomainName::of('example.com'));
         $eventArr = [
-            Event::occurred(EventAction::LAST_CHANGED(), 'actor', new \DateTimeImmutable()),
+            Event::occurred(EventAction::LAST_CHANGED(), new \DateTimeImmutable()),
         ];
         $linkArr = [
             new Link('scheme'),
@@ -99,7 +99,7 @@ class DomainTest extends TestCase
     {
         $domain = new Domain(DomainName::of('example.com'));
         $entity1 = new Entity();
-        $entity1->addStatus(Status::ACTIVE());
+        $entity1->addStatus(Status::OK());
         $entity2 = new Entity();
         $entity2->addStatus(Status::LOCKED());
         $domain->addEntity($entity1);

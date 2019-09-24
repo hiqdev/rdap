@@ -52,10 +52,24 @@ class CommonTest extends TestCase
 
     public function testEvents(): void
     {
-        $event1 = Event::occurred(EventAction::REGISTRATION(), 'actor', new DateTimeImmutable());
-        $event1->addLink(new Link('google.com'));
-        $event2 = Event::occurred(EventAction::LAST_CHANGED(), 'actor', new DateTimeImmutable());
-        $event1->addLink(new Link('google1.com'));
+        $eventActor1 = 'actor1';
+        $eventActor2 = 'actor2';
+        $link1 = new Link('google.com');
+        $link2 = new Link('google1.com');
+
+        $event1 = Event::occurred(EventAction::REGISTRATION(), new DateTimeImmutable());
+        $event1->setEventActor($eventActor1);
+        $event1->addLink($link1);
+        $event1->addLink($link2);
+        $this->assertSame($eventActor1, $event1->getEventActor());
+        $this->assertSame([$link1, $link2], $event1->getLinks());
+
+        $event2 = Event::occurred(EventAction::LAST_CHANGED(), new DateTimeImmutable());
+        $event2->addLink($link2);
+        $event2->setEventActor($eventActor2);
+        $this->assertSame($eventActor2, $event2->getEventActor());
+        $this->assertSame([$link2], $event2->getLinks());
+
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addEvent($event1);
         $common->addEvent($event2);
@@ -80,7 +94,7 @@ class CommonTest extends TestCase
 
     public function testStatuses(): void
     {
-        $status1 = Status::ACTIVE();
+        $status1 = Status::OK();
         $status2 = Status::LOCKED();
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addStatus($status1);

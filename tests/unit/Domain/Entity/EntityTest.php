@@ -83,8 +83,10 @@ class EntityTest extends TestCase
 
     public function testAsEventActor(): void
     {
-        $event1 = Event::occurred(EventAction::REGISTRATION(), 'actor', new DateTimeImmutable());
-        $event2 = Event::occurred(EventAction::LAST_CHANGED(), 'actor', new DateTimeImmutable());
+        $event1 = Event::occurred(EventAction::REGISTRATION(), new DateTimeImmutable());
+        $event1->setEventActor('actor1');
+        $event2 = Event::occurred(EventAction::LAST_CHANGED(), new DateTimeImmutable());
+        $event2->setEventActor('actor2');
         $entity = new Entity();
         $entity->addAsEventActor($event1);
         $entity->addAsEventActor($event2);

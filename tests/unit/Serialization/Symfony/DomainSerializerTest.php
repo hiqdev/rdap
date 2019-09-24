@@ -112,7 +112,7 @@ class DomainSerializerTest extends TestCase
     private function setSecureDNS(Domain $domain): void
     {
         $eventArr = [
-            Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 11:12:13')),
+            Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 11:12:13')),
         ];
         $linkArr = [
             new Link('scheme'),
@@ -129,7 +129,7 @@ class DomainSerializerTest extends TestCase
     private function setNetwork(Domain $domain): void
     {
         $ipNetwork = new IPNetwork();
-        $ipNetwork->addStatus(Status::ACTIVE());
+        $ipNetwork->addStatus(Status::OK());
         $domain->setNetwork($ipNetwork);
     }
 
@@ -147,15 +147,15 @@ class DomainSerializerTest extends TestCase
 
     private function addStatuses(Domain $domain): void
     {
-        $domain->addStatus(Status::ACTIVE());
+        $domain->addStatus(Status::OK());
         $domain->addStatus(Status::LOCKED());
     }
 
     private function addEvents(Domain $domain): void
     {
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
-        $domain->addEvent(Event::occurred(EventAction::DELETION(), 'actor', new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
+        $domain->addEvent(Event::occurred(EventAction::DELETION(), new DateTimeImmutable('2019-08-01 00:00:01')));
     }
 
     private function setPort43(Domain $domain): void
@@ -185,11 +185,11 @@ class DomainSerializerTest extends TestCase
     private function addEntities(Domain $domain): void
     {
         $entity1 = new Entity();
-        $entity1->addStatus(Status::ACTIVE());
+        $entity1->addStatus(Status::OK());
         $entity1->setHandle('handle');
         $entity1->addPublicId(new PublicId('type', 'identifier'));
         $entity1->addRole(Role::RESELLER());
-        $entity1->addAsEventActor(Event::occurred(EventAction::UNLOCKED(), 'actor', new DateTimeImmutable('2019-07-03 11:12:15')));
+        $entity1->addAsEventActor(Event::occurred(EventAction::UNLOCKED(), new DateTimeImmutable('2019-07-03 11:12:15')));
 
         $entity2 = clone $entity1;
         $entity1->addEntity($entity2);
