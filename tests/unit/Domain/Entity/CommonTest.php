@@ -52,12 +52,24 @@ class CommonTest extends TestCase
 
     public function testEvents(): void
     {
+        $eventActor1 = 'actor1';
+        $eventActor2 = 'actor2';
+        $link1 = new Link('google.com');
+        $link2 = new Link('google1.com');
+
         $event1 = Event::occurred(EventAction::REGISTRATION(), new DateTimeImmutable());
-        $event1->setEventActor('actor1');
-        $event1->addLink(new Link('google.com'));
+        $event1->setEventActor($eventActor1);
+        $event1->addLink($link1);
+        $event1->addLink($link2);
+        $this->assertSame($eventActor1, $event1->getEventActor());
+        $this->assertSame([$link1, $link2], $event1->getLinks());
+
         $event2 = Event::occurred(EventAction::LAST_CHANGED(), new DateTimeImmutable());
-        $event2->addLink(new Link('google1.com'));
-        $event2->setEventActor('actor2');
+        $event2->addLink($link2);
+        $event2->setEventActor($eventActor2);
+        $this->assertSame($eventActor2, $event2->getEventActor());
+        $this->assertSame([$link2], $event2->getLinks());
+
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addEvent($event1);
         $common->addEvent($event2);
