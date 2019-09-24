@@ -129,7 +129,7 @@ class DomainSerializerTest extends TestCase
     private function setNetwork(Domain $domain): void
     {
         $ipNetwork = new IPNetwork();
-        $ipNetwork->addStatus(Status::ACTIVE());
+        $ipNetwork->addStatus(Status::OK());
         $domain->setNetwork($ipNetwork);
     }
 
@@ -147,7 +147,7 @@ class DomainSerializerTest extends TestCase
 
     private function addStatuses(Domain $domain): void
     {
-        $domain->addStatus(Status::ACTIVE());
+        $domain->addStatus(Status::OK());
         $domain->addStatus(Status::LOCKED());
     }
 
@@ -185,7 +185,7 @@ class DomainSerializerTest extends TestCase
     private function addEntities(Domain $domain): void
     {
         $entity1 = new Entity();
-        $entity1->addStatus(Status::ACTIVE());
+        $entity1->addStatus(Status::OK());
         $entity1->setHandle('handle');
         $entity1->addPublicId(new PublicId('type', 'identifier'));
         $entity1->addRole(Role::RESELLER());

@@ -53,9 +53,11 @@ class CommonTest extends TestCase
     public function testEvents(): void
     {
         $event1 = Event::occurred(EventAction::REGISTRATION(), new DateTimeImmutable());
+        $event1->setEventActor('actor1');
         $event1->addLink(new Link('google.com'));
         $event2 = Event::occurred(EventAction::LAST_CHANGED(), new DateTimeImmutable());
-        $event1->addLink(new Link('google1.com'));
+        $event2->addLink(new Link('google1.com'));
+        $event2->setEventActor('actor2');
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addEvent($event1);
         $common->addEvent($event2);
@@ -80,7 +82,7 @@ class CommonTest extends TestCase
 
     public function testStatuses(): void
     {
-        $status1 = Status::ACTIVE();
+        $status1 = Status::OK();
         $status2 = Status::LOCKED();
         $common = $this->getMockForAbstractClass(Common::class, [ObjectClassName::ENTITY()]);
         $common->addStatus($status1);
