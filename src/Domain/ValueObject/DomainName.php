@@ -49,7 +49,7 @@ final class DomainName
     {
         $builder = [];
         foreach (explode('.', $domainName) as $label) {
-            $builder[] = Label::of($label);
+            $builder[] = Label::of(mb_strtolower($label));
         }
 
         return new DomainName($builder);

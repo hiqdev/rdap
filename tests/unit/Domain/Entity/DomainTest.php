@@ -135,4 +135,14 @@ class DomainTest extends TestCase
         $this->assertSame('xn--e1aybc.xn--j1amh.', (string) $domain->getLdhName()->toFQDN());
         $this->assertSame('xn--e1aybc.xn--j1amh.', (string) $domain->getLdhName()->toLDH()->toFQDN());
     }
+
+    public function testMixedCaseDomain(): void
+    {
+        $domain = new Domain(DomainName::of('UPPERCASED.com'));
+        $this->assertSame('uppercased.com', (string) $domain->getLdhName());
+
+        $domain = new Domain(DomainName::of('ЗмішанаКапіталізація.укр'));
+        $this->assertSame('змішанакапіталізація.укр', (string) $domain->getLdhName()->toUnicode());
+        $this->assertSame('xn--80aaaaa1bevlem1a3byds8jrehdd.xn--j1amh', (string) $domain->getLdhName());
+    }
 }
