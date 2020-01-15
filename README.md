@@ -11,7 +11,7 @@
 This PHP library makes it very easy to build an RDAP server that talks with your registry back-end.
 
 # Features
-* Include this library in your PHP web application to significantly ease implementing an RDAP server
+* Include this library in your PHP web application to significantly ease implementing an RDAP server and client
 * Can be combined with any back-end by simply implementing one or more methods
 * All you need to do is retrieve the data and populate some PHP objects
 
