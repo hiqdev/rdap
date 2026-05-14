@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\DTO;
 
-final class DnsSecData
+final class DnsSecData implements DnsSecDataInterface
 {
     /** @var int */
     private $keyTag;

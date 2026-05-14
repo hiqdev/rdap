@@ -7,7 +7,7 @@ namespace hiqdev\rdap\core\Infrastructure\DTO;
 use DateTimeImmutable;
 use DateTimeZone;
 
-final class DomainData
+final class DomainData implements DomainDataInterface
 {
     private string $handle;
     private ?string $statuses;

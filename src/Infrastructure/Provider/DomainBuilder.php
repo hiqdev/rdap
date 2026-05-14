@@ -12,9 +12,9 @@ use hiqdev\rdap\core\Domain\Entity\Nameserver;
 use hiqdev\rdap\core\Domain\ValueObject\DomainName;
 use hiqdev\rdap\core\Domain\ValueObject\Event;
 use hiqdev\rdap\core\Domain\ValueObject\Link;
-use hiqdev\rdap\core\Infrastructure\DTO\ContactData;
-use hiqdev\rdap\core\Infrastructure\DTO\DnsSecData;
-use hiqdev\rdap\core\Infrastructure\DTO\DomainData;
+use hiqdev\rdap\core\Infrastructure\DTO\ContactDataInterface;
+use hiqdev\rdap\core\Infrastructure\DTO\DnsSecDataInterface;
+use hiqdev\rdap\core\Infrastructure\DTO\DomainDataInterface;
 
 final class DomainBuilder implements DomainBuilderInterface
 {
@@ -30,12 +30,12 @@ final class DomainBuilder implements DomainBuilderInterface
     }
 
     /**
-     * @param ContactData[] $contacts
-     * @param DnsSecData[]|null $secureDnsData
+     * @param ContactDataInterface[] $contacts
+     * @param DnsSecDataInterface[]|null $secureDnsData
      */
     public function build(
         DomainName $domainName,
-        DomainData $domainData,
+        DomainDataInterface $domainData,
         array $contacts,
         ?array $secureDnsData
     ): Domain {

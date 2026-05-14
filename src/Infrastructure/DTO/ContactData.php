@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\DTO;
 
-final class ContactData
+final class ContactData implements ContactDataInterface
 {
     /** @var string */
     private $id;

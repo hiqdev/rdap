@@ -7,12 +7,12 @@ namespace hiqdev\rdap\core\Infrastructure\Provider;
 use hiqdev\rdap\core\Domain\Constant\Role;
 use hiqdev\rdap\core\Domain\Entity\Entity;
 use hiqdev\rdap\core\Domain\Entity\VCard;
-use hiqdev\rdap\core\Infrastructure\DTO\ContactData;
+use hiqdev\rdap\core\Infrastructure\DTO\ContactDataInterface;
 
 final class ContactBuilder implements ContactBuilderInterface
 {
     /**
-     * @param ContactData[] $contacts
+     * @param ContactDataInterface[] $contacts
      * @return Entity[]
      */
     public function build(array $contacts): array
@@ -39,7 +39,7 @@ final class ContactBuilder implements ContactBuilderInterface
         return $entities;
     }
 
-    private function buildVCard(ContactData $contact): VCard
+    private function buildVCard(ContactDataInterface $contact): VCard
     {
         $wp    = $contact->isWhoisProtected();
         $vcard = (new VCard())
