@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\Serialization\Symfony;
 
-use Doctrine\Common\Annotations\AnnotationReader;
 use Exception;
 use hiqdev\rdap\core\Infrastructure\Serialization\SerializerInterface;
 use hiqdev\rdap\core\Infrastructure\Serialization\Symfony\Normalizer\AsStringNormalizer;
@@ -23,7 +22,7 @@ use InvalidArgumentException;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -38,11 +37,7 @@ final class SymfonySerializer implements SerializerInterface
 
     public function __construct()
     {
-        $classMetaDataFactory = new ClassMetadataFactory(
-            new AnnotationLoader(
-                new AnnotationReader()
-            )
-        );
+        $classMetaDataFactory = new ClassMetadataFactory(new AttributeLoader());
         $objectNormalizer = new ObjectNormalizer(
             $classMetaDataFactory,
             null,

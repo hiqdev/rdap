@@ -1,7 +1,7 @@
 {
     "name": "hiqdev/rdap",
     "type": "library",
-    "description": "Registration Data Access Protocol – core objects implemantation package accodring to the RFC 7483",
+    "description": "Registration Data Access Protocol – core objects implementation package according to the RFC 7483",
     "keywords": [
         "rdap",
         "php",
@@ -12,9 +12,7 @@
     "support": {
         "email": "support@hiqdev.com",
         "source": "https://github.com/hiqdev/rdap",
-        "issues": "https://github.com/hiqdev/rdap/issues",
-        "wiki": "https://github.com/hiqdev/rdap/wiki",
-        "forum": "http://forum.hiqdev.com/"
+        "issues": "https://github.com/hiqdev/rdap/issues"
     },
     "authors": [
         {
@@ -47,20 +45,12 @@
         "ext-mbstring": "*",
         "ext-intl": "*",
         "ext-json": "*",
-        "jeroendesloovere/vcard": "^1.7.2",
-        "doctrine/annotations": "^2.0",
         "symfony/serializer": "^6.4",
         "symfony/property-info": "^6.4",
-        "symfony/property-access": "^6.4",
-        "sabre/vobject": "^4.5",
         "phpdocumentor/reflection-docblock": "^5.4"
     },
     "require-dev": {
-        "hiqdev/hidev": "dev-master",
-        "hiqdev/hidev-php": "dev-master",
-        "hiqdev/hidev-hiqdev": "dev-master",
-        "phpunit/phpunit": "^8.3.4",
-        "vimeo/psalm": "^3.4"
+        "phpunit/phpunit": "^10"
     },
     "autoload": {
         "psr-4": {
@@ -71,11 +61,5 @@
         "psr-4": {
             "hiqdev\\rdap\\core\\tests\\": "tests"
         }
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ]
+    }
 }
