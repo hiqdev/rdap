@@ -13,6 +13,12 @@ namespace hiqdev\rdap\core\Domain\ValueObject;
 use hiqdev\rdap\core\Domain\ValueObject\SecureDNS\DSData;
 use hiqdev\rdap\core\Domain\ValueObject\SecureDNS\KeyData;
 
+/**
+ * DNSSEC information attached to a domain object, as defined by RFC 9083 §5.2.
+ *
+ * Groups zone-signed / delegation-signed flags, optional max signature lifetime,
+ * DS records (DSData), and DNSKEY records (KeyData).
+ */
 class SecureDNS
 {
     /**

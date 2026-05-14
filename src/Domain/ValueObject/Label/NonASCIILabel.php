@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Domain\ValueObject\Label;
 
+/** Domain label containing non-ASCII (Unicode / IDN U-label) characters. */
 final class NonASCIILabel extends Label
 {
 }

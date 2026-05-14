@@ -6,6 +6,7 @@ namespace hiqdev\rdap\core\Infrastructure\Provider;
 
 use hiqdev\rdap\core\Domain\ValueObject\Notice;
 
+/** Builds the RDAP Notice objects to embed in every domain response. */
 interface NoticeBuilderInterface
 {
     /**

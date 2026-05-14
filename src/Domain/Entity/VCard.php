@@ -2,6 +2,12 @@
 
 namespace hiqdev\rdap\core\Domain\Entity;
 
+/**
+ * jCard/vCard 4.0 builder for RDAP entity contact information (RFC 7095).
+ *
+ * Builds an ordered array of vCard property tuples [name, params, type, value]
+ * suitable for serialisation as the vcardArray member of an RDAP entity.
+ */
 final class VCard implements \JsonSerializable
 {
     const VERSION = '4.0';

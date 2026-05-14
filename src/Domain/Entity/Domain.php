@@ -17,6 +17,10 @@ use hiqdev\rdap\core\Domain\ValueObject\PublicId;
 use hiqdev\rdap\core\Domain\ValueObject\SecureDNS;
 use hiqdev\rdap\core\Domain\Constant\Role;
 
+/**
+ * RDAP domain object as defined by RFC 9083 §5.3, representing a registered domain name
+ * with nameservers, DNSSEC data, related entities, and optional redaction rules (RFC 9537).
+ */
 final class Domain extends Common
 {
     use TopMostEntityTrait;

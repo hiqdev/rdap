@@ -6,6 +6,12 @@ namespace hiqdev\rdap\core\Infrastructure\Serialization\Symfony\Normalizer;
 
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
+/**
+ * Normalizes PHP backed enums to their scalar value string.
+ *
+ * Used so that Status, Role, EventAction, etc. are serialised as their
+ * string backing value rather than as objects.
+ */
 final class EnumNormalizer implements NormalizerInterface
 {
     /** @return array<class-string, bool> All backed enums are supported */

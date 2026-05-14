@@ -7,6 +7,12 @@ namespace hiqdev\rdap\core\Infrastructure\DTO;
 use DateTimeImmutable;
 use DateTimeZone;
 
+/**
+ * Immutable DTO carrying raw domain registration data fetched from the registry DB.
+ *
+ * Date strings passed to the constructor are parsed into DateTimeImmutable objects
+ * normalised to UTC. Implements DomainDataInterface for use across the provider layer.
+ */
 final class DomainData implements DomainDataInterface
 {
     private string $handle;

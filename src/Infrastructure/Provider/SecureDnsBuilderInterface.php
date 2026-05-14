@@ -7,6 +7,7 @@ namespace hiqdev\rdap\core\Infrastructure\Provider;
 use hiqdev\rdap\core\Domain\ValueObject\SecureDNS;
 use hiqdev\rdap\core\Infrastructure\DTO\DnsSecDataInterface;
 
+/** Builds a SecureDNS value object from a list of DS record DTOs. */
 interface SecureDnsBuilderInterface
 {
     /**

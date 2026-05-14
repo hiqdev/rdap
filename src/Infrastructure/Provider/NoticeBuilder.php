@@ -7,6 +7,12 @@ namespace hiqdev\rdap\core\Infrastructure\Provider;
 use hiqdev\rdap\core\Domain\ValueObject\Link;
 use hiqdev\rdap\core\Domain\ValueObject\Notice;
 
+/**
+ * Builds RDAP Notice objects from a static configuration array.
+ *
+ * Each config entry must contain title, description, and link keys.
+ * The link's value field is set to the current domain URL at build time.
+ */
 final class NoticeBuilder implements NoticeBuilderInterface
 {
     /** @param array $noticesConfig Array of notice config entries with title, description, and link keys */

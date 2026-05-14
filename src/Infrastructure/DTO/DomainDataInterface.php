@@ -6,6 +6,7 @@ namespace hiqdev\rdap\core\Infrastructure\DTO;
 
 use DateTimeImmutable;
 
+/** Read contract for a domain registration data DTO (handles, dates, statuses, nameservers, WHOIS/DNSSEC flags). */
 interface DomainDataInterface
 {
     /** @return string Registry-unique domain handle (ROID) */

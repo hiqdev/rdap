@@ -6,6 +6,7 @@ namespace hiqdev\rdap\core\Infrastructure\Provider;
 
 use hiqdev\rdap\core\Infrastructure\Query\DomainNamesQuery;
 
+/** Data access contract for fetching a paged list of domain names pending RDAP update. */
 interface DomainNamesRepositoryInterface
 {
     /**

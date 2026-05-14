@@ -13,6 +13,7 @@ namespace hiqdev\rdap\core\Domain\Entity;
 use hiqdev\rdap\core\Domain\Constant\ObjectClassName;
 use hiqdev\rdap\core\Domain\ValueObject\InetAddress;
 
+/** RDAP IP network object as defined by RFC 9083 §5.4, representing an IP address block with start/end addresses, handle, and related entities. */
 class IPNetwork extends Common
 {
     /**

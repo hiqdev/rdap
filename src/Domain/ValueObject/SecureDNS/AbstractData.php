@@ -13,6 +13,7 @@ namespace hiqdev\rdap\core\Domain\ValueObject\SecureDNS;
 use hiqdev\rdap\core\Domain\ValueObject\Event;
 use hiqdev\rdap\core\Domain\ValueObject\Link;
 
+/** Abstract base for DNSSEC data objects (DSData / KeyData), providing shared algorithm, events, and links fields. */
 abstract class AbstractData
 {
     /**

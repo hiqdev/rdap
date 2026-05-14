@@ -12,6 +12,7 @@ namespace hiqdev\rdap\core\Domain\Entity;
 
 use hiqdev\rdap\core\Domain\Constant\ObjectClassName;
 
+/** RDAP autonomous system number object (RFC 9083 §5.5), representing an AS number range with handle, name, type, and country. */
 final class AutNum extends Common
 {
     public const OBJECT_CLASS_NAME = 'autnum';

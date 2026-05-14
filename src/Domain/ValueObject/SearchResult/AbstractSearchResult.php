@@ -14,6 +14,7 @@ use hiqdev\rdap\core\Domain\Entity\Domain;
 use hiqdev\rdap\core\Domain\Entity\Entity;
 use hiqdev\rdap\core\Domain\Entity\Nameserver;
 
+/** Base implementation of SearchResultInterface for RDAP search responses (RFC 9083 §8). */
 abstract class AbstractSearchResult implements SearchResultInterface
 {
     /**

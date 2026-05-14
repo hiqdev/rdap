@@ -10,6 +10,7 @@ use hiqdev\rdap\core\Infrastructure\DTO\ContactDataInterface;
 use hiqdev\rdap\core\Infrastructure\DTO\DnsSecDataInterface;
 use hiqdev\rdap\core\Infrastructure\DTO\DomainDataInterface;
 
+/** Contract for assembling a Domain entity from raw DTO data and associated contacts/DS records. */
 interface DomainBuilderInterface
 {
     /**

@@ -12,6 +12,10 @@ namespace hiqdev\rdap\core\Domain\ValueObject\DomainVariant;
 
 use hiqdev\rdap\core\Domain\Constant\Relation;
 
+/**
+ * RDAP domain variant group as defined by RFC 9083 §5.3, associating a set of variant names
+ * with their IDN table identifier and relation types.
+ */
 final class Variant
 {
     /**

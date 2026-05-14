@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\DTO;
 
+/** Read contract for a single DNSSEC DS record DTO. */
 interface DnsSecDataInterface
 {
     /** @return int DS record key tag (identifies the referenced DNSKEY) */

@@ -16,6 +16,14 @@ use hiqdev\rdap\core\Infrastructure\DTO\ContactDataInterface;
 use hiqdev\rdap\core\Infrastructure\DTO\DnsSecDataInterface;
 use hiqdev\rdap\core\Infrastructure\DTO\DomainDataInterface;
 
+/**
+ * Assembles a fully populated RDAP Domain entity from raw DTO data.
+ *
+ * Wires together contacts (via ContactBuilderInterface), the registrar entity
+ * (via RegistrarBuilderInterface), DNSSEC data (via SecureDnsBuilderInterface),
+ * ICANN notices (via NoticeBuilderInterface), EPP statuses, nameservers, events,
+ * redacted fields, self link, and port43.
+ */
 final class DomainBuilder implements DomainBuilderInterface
 {
     /**

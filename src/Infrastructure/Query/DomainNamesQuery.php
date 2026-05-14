@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\Query;
 
+/**
+ * Query object for fetching domain names that need RDAP cache updates.
+ *
+ * Carries three optional filters: whether to include unchanged domains,
+ * a row limit, and a specific list of domain names to restrict the query to.
+ */
 final class DomainNamesQuery
 {
     /** @var bool|null */

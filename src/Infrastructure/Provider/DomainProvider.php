@@ -7,6 +7,12 @@ namespace hiqdev\rdap\core\Infrastructure\Provider;
 use hiqdev\rdap\core\Domain\Entity\Domain;
 use hiqdev\rdap\core\Domain\ValueObject\DomainName;
 
+/**
+ * Orchestrates fetching and assembling a complete RDAP Domain entity.
+ *
+ * Retrieves domain data, contacts, and DS records from the repository,
+ * then delegates to DomainBuilderInterface to produce the final Domain object.
+ */
 final class DomainProvider implements DomainProviderInterface
 {
     /** @var DomainRepositoryInterface */

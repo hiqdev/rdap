@@ -9,6 +9,12 @@ use hiqdev\rdap\core\Domain\Entity\Entity;
 use hiqdev\rdap\core\Domain\Entity\VCard;
 use hiqdev\rdap\core\Infrastructure\DTO\ContactDataInterface;
 
+/**
+ * Builds RDAP Entity objects with jCard vCards from contact DTOs.
+ *
+ * Groups contacts by ID so that a single entity carries all roles for one contact.
+ * Personal fields (name, address, phone) are omitted when whoisProtected is true.
+ */
 final class ContactBuilder implements ContactBuilderInterface
 {
     /**

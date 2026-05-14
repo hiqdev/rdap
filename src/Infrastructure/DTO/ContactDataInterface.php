@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\DTO;
 
+/** Read contract for a contact DTO (id, role, WHOIS protection flag, and postal/contact fields). */
 interface ContactDataInterface
 {
     /** @return string Registry contact identifier */

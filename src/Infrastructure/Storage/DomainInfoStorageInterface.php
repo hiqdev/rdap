@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\Storage;
 
+/**
+ * Storage contract for pre-built RDAP JSON keyed by domain name.
+ *
+ * Implementations must handle save/find/delete and a time-based pruning operation.
+ * How expiry is enforced (TTL, mtime scan, etc.) is left to each implementation.
+ */
 interface DomainInfoStorageInterface
 {
     /** @param string $domainName Fully-qualified domain name used as the storage key */

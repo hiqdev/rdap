@@ -14,6 +14,7 @@ namespace hiqdev\rdap\core\Domain\ValueObject\Label;
 
 use InvalidArgumentException;
 
+/** Abstract base for ASCII-only domain labels; validates that all characters are within the ASCII range. */
 abstract class ASCIILabel extends Label
 {
     /**

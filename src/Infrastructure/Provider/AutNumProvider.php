@@ -5,6 +5,7 @@ namespace hiqdev\rdap\core\Infrastructure\Provider;
 use hiqdev\rdap\core\Domain\Entity\AutNum;
 use hiqdev\rdap\core\Infrastructure\Exception\ObjectNotAvailableException;
 
+/** Data access contract for fetching Autonomous System Number objects. */
 interface AutNumProvider
 {
     /**

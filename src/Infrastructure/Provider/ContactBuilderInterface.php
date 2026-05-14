@@ -7,6 +7,7 @@ namespace hiqdev\rdap\core\Infrastructure\Provider;
 use hiqdev\rdap\core\Domain\Entity\Entity;
 use hiqdev\rdap\core\Infrastructure\DTO\ContactDataInterface;
 
+/** Builds RDAP Entity objects with vCards from a list of contact DTOs. */
 interface ContactBuilderInterface
 {
     /**

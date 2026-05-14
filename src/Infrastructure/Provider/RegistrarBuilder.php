@@ -10,6 +10,13 @@ use hiqdev\rdap\core\Domain\Entity\VCard;
 use hiqdev\rdap\core\Domain\ValueObject\Link;
 use hiqdev\rdap\core\Domain\ValueObject\PublicId;
 
+/**
+ * Builds the registrar Entity from REGISTRAR_* environment variables.
+ *
+ * Produces a registrar entity with a vCard, IANA ID public identifier,
+ * an about link, and a nested abuse entity — as required by the
+ * ICANN RDAP Response Profile.
+ */
 final class RegistrarBuilder implements RegistrarBuilderInterface
 {
     /** @return Entity Registrar entity with vCard, IANA ID, abuse sub-entity, and self link */

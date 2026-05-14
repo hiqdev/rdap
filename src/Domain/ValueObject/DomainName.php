@@ -17,6 +17,13 @@ use hiqdev\rdap\core\Domain\ValueObject\Label\Label;
 use hiqdev\rdap\core\Domain\ValueObject\Label\RootLabel;
 use InvalidArgumentException;
 
+/**
+ * Immutable value object representing a DNS domain name as an ordered list of labels.
+ *
+ * Supports conversion between LDH (ACE/punycode) and Unicode (U-label) forms,
+ * FQDN normalisation, and label-level access. Constructed via the static factory
+ * DomainName::of() which parses a dot-separated string into Label instances.
+ */
 final class DomainName
 {
     /**

@@ -12,6 +12,13 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Domain\ValueObject\Label;
 
+/**
+ * Abstract base for a single DNS label within a domain name.
+ *
+ * Subclasses: LDHLabel (ASCII letters/digits/hyphens), NonASCIILabel (IDN U-label),
+ * and RootLabel (empty trailing label representing the DNS root).
+ * The static factory Label::of() selects the appropriate subclass automatically.
+ */
 abstract class Label
 {
     private const HYPHEN = '-';

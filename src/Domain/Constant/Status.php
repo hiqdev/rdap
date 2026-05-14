@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Domain\Constant;
 
+/** RDAP object status values as defined in RFC 9083 §10.2.2 and the ICANN EPP status mapping. */
 enum Status: string
 {
     case OK                       = 'active';

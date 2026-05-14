@@ -12,6 +12,12 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Domain\ValueObject;
 
+/**
+ * Immutable value object grouping IPv4 and IPv6 addresses for a nameserver.
+ *
+ * Constructed via static factories: getInstanceByProtocol() when addresses are
+ * already separated by version, or getInstanceByInetAddr() for a mixed array.
+ */
 final class IpAddresses
 {
     /**

@@ -28,6 +28,13 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
+/**
+ * Symfony Serializer adapter implementing SerializerInterface.
+ *
+ * Pre-configures the serializer with all normalizers needed for RDAP output:
+ * EnumNormalizer, VcardNormalizer, AsStringNormalizer, DomainNormalizer,
+ * DateTimeNormalizer (ISO 8601 UTC), and ObjectNormalizer with null-skipping.
+ */
 final class SymfonySerializer implements SerializerInterface
 {
     /**

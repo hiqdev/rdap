@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Domain\ValueObject\Label;
 
+/** Singleton label representing the DNS root (the empty string after the trailing dot in a FQDN). */
 final class RootLabel extends Label
 {
     /**

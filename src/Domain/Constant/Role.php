@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Domain\Constant;
 
+/** RDAP entity role values as defined in RFC 9083 §10.2.4. */
 enum Role: string
 {
     case REGISTRANT     = 'registrant';

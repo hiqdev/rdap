@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Domain\ValueObject;
 
+/** Immutable value object wrapping a validated IPv4 address string. */
 final class IpV4Address implements IpAddress
 {
     /**

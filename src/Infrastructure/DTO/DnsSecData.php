@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\DTO;
 
+/** Immutable DTO carrying a single DS record (key tag, algorithm, digest type, and digest hex). */
 final class DnsSecData implements DnsSecDataInterface
 {
     /** @var int */

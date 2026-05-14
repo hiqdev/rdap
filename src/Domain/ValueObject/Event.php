@@ -15,6 +15,11 @@ namespace hiqdev\rdap\core\Domain\ValueObject;
 use DateTimeImmutable;
 use hiqdev\rdap\core\Domain\Constant\EventAction;
 
+/**
+ * RDAP event value object representing a single lifecycle event on a registry object (RFC 9083 §4.5).
+ *
+ * Constructed via Event::occurred(); additional actor and link data may be attached afterwards.
+ */
 final class Event
 {
     /**

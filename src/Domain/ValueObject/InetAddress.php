@@ -10,6 +10,7 @@
 
 namespace hiqdev\rdap\core\Domain\ValueObject;
 
+/** Placeholder base class for internet address types. Not yet implemented. */
 class InetAddress
 {
     //TODO implement InetAddress class

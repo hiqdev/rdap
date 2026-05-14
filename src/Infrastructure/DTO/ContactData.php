@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\DTO;
 
+/**
+ * Immutable DTO carrying raw contact data fetched from the registry DB.
+ *
+ * Personal fields (name, address, phone) may be empty strings when the contact
+ * is under WHOIS privacy protection; callers should check isWhoisProtected()
+ * before rendering them in the RDAP output.
+ */
 final class ContactData implements ContactDataInterface
 {
     /** @var string */

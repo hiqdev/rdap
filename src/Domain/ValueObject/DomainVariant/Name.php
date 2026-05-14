@@ -12,6 +12,7 @@ namespace hiqdev\rdap\core\Domain\ValueObject\DomainVariant;
 
 use hiqdev\rdap\core\Domain\ValueObject\DomainName;
 
+/** A single domain variant name pairing its LDH (ACE/punycode) and Unicode forms, as defined by RFC 9083 §5.3. */
 final class Name
 {
     /**
