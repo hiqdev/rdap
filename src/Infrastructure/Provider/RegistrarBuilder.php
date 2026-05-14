@@ -12,6 +12,7 @@ use hiqdev\rdap\core\Domain\ValueObject\PublicId;
 
 final class RegistrarBuilder implements RegistrarBuilderInterface
 {
+    /** @return Entity Registrar entity with vCard, IANA ID, abuse sub-entity, and self link */
     public function build(): Entity
     {
         $ianaId = getenv('REGISTRAR_IANAID') ?: '';

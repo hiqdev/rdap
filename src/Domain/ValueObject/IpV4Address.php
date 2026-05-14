@@ -19,6 +19,10 @@ final class IpV4Address implements IpAddress
      */
     private $ip;
 
+    /**
+     * @param string $ip Dotted-decimal IPv4 address string (e.g. "192.0.2.1")
+     * @throws \InvalidArgumentException if the value is not a valid IPv4 address
+     */
     public function __construct(string $ip)
     {
         if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
@@ -36,6 +40,7 @@ final class IpV4Address implements IpAddress
         return $this->ip;
     }
 
+    /** @return string Dotted-decimal IPv4 address string */
     public function __toString(): string
     {
         return $this->getHostAddress();

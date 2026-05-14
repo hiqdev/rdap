@@ -22,5 +22,6 @@ interface IpAddress
      */
     public function getHostAddress(): string;
 
+    /** @return string Dotted-decimal (IPv4) or colon-separated (IPv6) string representation */
     public function __toString(): string;
 }

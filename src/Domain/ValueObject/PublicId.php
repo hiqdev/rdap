@@ -34,6 +34,10 @@ final class PublicId
      */
     private $identifier;
 
+    /**
+     * @param string $type       Type label for the public identifier (e.g. "IANA Registrar ID")
+     * @param string $identifier The public identifier value
+     */
     public function __construct(string $type, string $identifier)
     {
         $this->type = $type;

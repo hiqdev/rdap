@@ -35,6 +35,7 @@ final class SymfonySerializer implements SerializerInterface
      */
     private $serializer;
 
+    /** Builds the Symfony Serializer with all normalizers and the JSON encoder pre-configured */
     public function __construct()
     {
         $classMetaDataFactory = new ClassMetadataFactory(new AttributeLoader());
@@ -70,6 +71,12 @@ final class SymfonySerializer implements SerializerInterface
         $this->serializer = $serializer;
     }
 
+    /**
+     * @param object $entity        RDAP entity to serialise
+     * @param string $targetFormat  Target format; use {@see SerializerInterface::FORMAT_JSON}
+     * @param array  $targetOptions Additional Symfony Serializer context options
+     * @return string Serialised representation (JSON by default)
+     */
     public function serialize(
         object $entity,
         string $targetFormat = self::FORMAT_JSON,
@@ -78,6 +85,13 @@ final class SymfonySerializer implements SerializerInterface
         return $this->serializer->serialize($entity, $targetFormat, $targetOptions);
     }
 
+    /**
+     * @param array|object $input        Data to deserialise
+     * @param string|null  $type         Target class; guessed from $input when null
+     * @param string       $sourceFormat Source format
+     * @return array|object
+     * @throws Exception Deserialization is not yet implemented
+     */
     public function deserialize(
         $input,
         ?string $type = null,

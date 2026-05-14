@@ -63,6 +63,7 @@ abstract class Common
      */
     private $status;
 
+    /** @param ObjectClassName $objectClassName RDAP object class for this entity */
     public function __construct(ObjectClassName $objectClassName)
     {
         $this->objectClassName = $objectClassName;

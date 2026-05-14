@@ -26,6 +26,10 @@ final class IpV6Address implements IpAddress
      */
     private $ip;
 
+    /**
+     * @param string $ip Colon-separated IPv6 address string (e.g. "2001:db8::1")
+     * @throws \InvalidArgumentException if the value is not a valid IPv6 address
+     */
     public function __construct(string $ip)
     {
         if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
@@ -43,6 +47,7 @@ final class IpV6Address implements IpAddress
         return $this->ip;
     }
 
+    /** @return string Colon-separated IPv6 address string */
     public function __toString(): string
     {
         return $this->getHostAddress();

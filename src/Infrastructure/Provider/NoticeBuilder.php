@@ -9,6 +9,7 @@ use hiqdev\rdap\core\Domain\ValueObject\Notice;
 
 final class NoticeBuilder implements NoticeBuilderInterface
 {
+    /** @param array $noticesConfig Array of notice config entries with title, description, and link keys */
     public function __construct(private array $noticesConfig)
     {
     }

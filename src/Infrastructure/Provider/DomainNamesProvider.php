@@ -13,6 +13,7 @@ final class DomainNamesProvider
     /** @var DomainNamesRepositoryInterface */
     private $repository;
 
+    /** @param DomainNamesRepositoryInterface $repository Data source for retrieving domain name lists */
     public function __construct(DomainNamesRepositoryInterface $repository)
     {
         $this->repository = $repository;

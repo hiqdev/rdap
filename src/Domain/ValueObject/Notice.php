@@ -65,6 +65,10 @@ final class Notice
         return $this->type ?? null;
     }
 
+    /**
+     * @param  string|null $type Optional notice type identifier
+     * @return self
+     */
     public function setType(?string $type): self
     {
         $this->type = $type;

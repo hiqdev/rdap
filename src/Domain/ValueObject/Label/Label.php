@@ -20,11 +20,16 @@ abstract class Label
      */
     protected $value;
 
+    /** @param string $label Raw label value string */
     public function __construct(string $label)
     {
         $this->value = $label;
     }
 
+    /**
+     * @param  string $name Single domain label string (e.g. "com", "xn--nxasmq6b")
+     * @return Label  RootLabel for empty string, NonASCIILabel for non-ASCII, LDHLabel otherwise
+     */
     public static function of(string $name): Label
     {
         if ($name === '') {
@@ -46,16 +51,19 @@ abstract class Label
         return $this->value;
     }
 
+    /** @return string Raw label value string */
     public function __toString(): string
     {
         return $this->value;
     }
 
+    /** @return Label A new LDHLabel with the ACE (punycode) form of this label */
     public function toLDH(): Label
     {
         return new LDHLabel(idn_to_ascii($this->value, IDNA_NONTRANSITIONAL_TO_ASCII, INTL_IDNA_VARIANT_UTS46));
     }
 
+    /** @return Label A new NonASCIILabel with the Unicode (U-label) form of this label */
     public function toUnicode(): Label
     {
         return new NonASCIILabel(idn_to_utf8($this->value, IDNA_NONTRANSITIONAL_TO_ASCII, INTL_IDNA_VARIANT_UTS46));

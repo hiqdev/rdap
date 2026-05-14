@@ -25,6 +25,10 @@ namespace hiqdev\rdap\core\Domain\ValueObject\Label;
  */
 final class LDHLabel extends ASCIILabel
 {
+    /**
+     * @param string $label ASCII label string containing only letters, digits, and hyphens
+     * @throws \OutOfRangeException if the label contains non-LDH characters
+     */
     public function __construct(string $label)
     {
         parent::__construct($label);

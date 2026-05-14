@@ -15,12 +15,21 @@ final class DomainProvider implements DomainProviderInterface
     /** @var DomainBuilderInterface */
     private $builder;
 
+    /**
+     * @param DomainRepositoryInterface $repository Data source for domain, contact, and DS records
+     * @param DomainBuilderInterface    $builder    Assembles the RDAP Domain entity from raw data
+     */
     public function __construct(DomainRepositoryInterface $repository, DomainBuilderInterface $builder)
     {
         $this->repository = $repository;
         $this->builder    = $builder;
     }
 
+    /**
+     * @param  DomainName $domainName Domain to look up
+     * @return Domain     Fully populated RDAP domain entity
+     * @throws \hiqdev\rdap\core\Infrastructure\Exception\ObjectNotAvailableException if not found
+     */
     public function get(DomainName $domainName): Domain
     {
         $name       = (string)$domainName;

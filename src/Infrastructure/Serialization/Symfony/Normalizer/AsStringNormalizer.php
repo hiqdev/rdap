@@ -22,6 +22,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  */
 final class AsStringNormalizer implements NormalizerInterface, CacheableSupportsMethodInterface
 {
+    /** @return bool Always true — normalisation support result is stable across calls */
     public function hasCacheableSupportsMethod(): bool
     {
         return true;

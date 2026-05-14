@@ -64,6 +64,7 @@ final class Domain extends Common
     /** @var  array */
     private $redacted;
 
+    /** @param DomainName $ldhName Domain name; stored internally in LDH (ASCII) form */
     public function __construct(DomainName $ldhName)
     {
         parent::__construct(ObjectClassName::DOMAIN);
@@ -81,6 +82,7 @@ final class Domain extends Common
         return $this->ldhName;
     }
 
+    /** @return DomainName Unicode (U-label) representation of the domain name */
     public function getUnicodeName(): DomainName
     {
         return $this->ldhName->toUnicode();
@@ -232,11 +234,16 @@ final class Domain extends Common
         return $this;
     }
 
+    /** @return array RDAP redacted-fields array (RFC 9537) */
     public function getRedacted(): array
     {
         return $this->redacted ?? [];
     }
 
+    /**
+     * @param  bool|null $wp When true, adds WHOIS-privacy redaction rules for personal contact fields
+     * @return self
+     */
     public function setRedacted(?bool $wp = false): Domain
     {
         $this->setDefaultRedactedRules();

@@ -70,6 +70,7 @@ final class Entity extends Common
      */
     private $entities = [];
 
+    /** Initialises the entity with the ENTITY object class name */
     public function __construct()
     {
         parent::__construct(ObjectClassName::ENTITY);

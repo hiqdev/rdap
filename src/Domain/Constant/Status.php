@@ -41,6 +41,10 @@ enum Status: string
     case CLIENTTRANSFERPROHIBITED = 'client transfer prohibited';
     case CLIENTUPDATEPROHIBITED   = 'client update prohibited';
 
+    /**
+     * @param  string $name Enum case name in UPPER_SNAKE_CASE (e.g. "OK")
+     * @return self
+     */
     public static function fromName(string $name): self
     {
         return constant('self::' . $name);

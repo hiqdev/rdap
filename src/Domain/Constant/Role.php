@@ -18,6 +18,10 @@ enum Role: string
     case NOTIFICATIONS  = 'notifications';
     case NOC            = 'noc';
 
+    /**
+     * @param  string $name Enum case name in UPPER_SNAKE_CASE (e.g. "REGISTRANT")
+     * @return self
+     */
     public static function fromName(string $name): self
     {
         return constant('self::' . $name);

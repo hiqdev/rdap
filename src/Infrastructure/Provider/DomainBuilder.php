@@ -18,6 +18,15 @@ use hiqdev\rdap\core\Infrastructure\DTO\DomainDataInterface;
 
 final class DomainBuilder implements DomainBuilderInterface
 {
+    /**
+     * @param string                    $whoisUrl        Hostname of the WHOIS server (port43)
+     * @param array                     $rdapConformance rdapConformance strings to embed in every response
+     * @param string                    $rdapUrl         Base URL of this RDAP service (prefix for self links)
+     * @param ContactBuilderInterface   $contactBuilder  Builds vCard entities from contact DTOs
+     * @param RegistrarBuilderInterface $registrarBuilder Builds the registrar entity
+     * @param NoticeBuilderInterface    $noticeBuilder   Builds ICANN-required notice objects
+     * @param SecureDnsBuilderInterface $secureDnsBuilder Builds the secureDNS object from DS records
+     */
     public function __construct(
         private string $whoisUrl,
         private array $rdapConformance,

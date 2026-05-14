@@ -31,6 +31,7 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
  */
 final class DomainNormalizer implements DenormalizerInterface, CacheableSupportsMethodInterface
 {
+    /** @return bool Always true — normalisation support result is stable across calls */
     public function hasCacheableSupportsMethod(): bool
     {
         return true;
@@ -48,6 +49,7 @@ final class DomainNormalizer implements DenormalizerInterface, CacheableSupports
         return $data;
     }
 
+    /** @return bool True only when the target type is {@see Domain} */
     public function supportsDenormalization($data, $type, $format = null)
     {
         return $type === Domain::class;
