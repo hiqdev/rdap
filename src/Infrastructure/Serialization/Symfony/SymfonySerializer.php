@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\Infrastructure\Serialization\Symfony;
 
-use Exception;
 use hiqdev\rdap\core\Infrastructure\Serialization\SerializerInterface;
 use hiqdev\rdap\core\Infrastructure\Serialization\Symfony\Normalizer\AsStringNormalizer;
 use hiqdev\rdap\core\Infrastructure\Serialization\Symfony\Normalizer\DomainNormalizer;
@@ -93,17 +92,20 @@ final class SymfonySerializer implements SerializerInterface
     }
 
     /**
-     * @param array|object $input        Data to deserialise
-     * @param string|null  $type         Target class
+     * @param array|object $input        Data to deserialise (JSON string when using FORMAT_JSON)
+     * @param string|null  $type         Target class (required)
      * @param string       $sourceFormat Source format
-     * @return never
-     * @throws Exception Always — deserialization is not yet implemented
+     * @return mixed Deserialised object of the requested type
+     * @throws InvalidArgumentException When $type is null
      */
     public function deserialize(
         $input,
         ?string $type = null,
         string $sourceFormat = self::FORMAT_JSON
-    ): never {
-        throw new Exception('Deserialization is not implemented yet');
+    ): mixed {
+        if ($type === null) {
+            throw new InvalidArgumentException('Type must be provided for deserialization.');
+        }
+        return $this->serializer->deserialize($input, $type, $sourceFormat);
     }
 }

@@ -75,15 +75,12 @@ class DomainSerializerTest extends TestCase
 
     public function testDeserialization(): void
     {
-        $this->markTestIncomplete('Deserialization is not implemented yet.');
-        // TODO: implement
-
         $domain = new Domain(DomainName::of('тест.укр'));
         $this->fillDomainWithTestData($domain);
         $serializer = $this->getSerializer();
         $json = $serializer->serialize($domain);
         $deserialized = $serializer->deserialize($json, Domain::class);
-        $this->assertSame($domain, $deserialized);
+        $this->assertJsonStringEqualsJsonString($json, $serializer->serialize($deserialized));
     }
 
     private function fillDomainWithTestData(Domain $domain): void
