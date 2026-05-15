@@ -17,8 +17,6 @@ if (!file_exists($autoloader)) {
 }
 require_once $autoloader;
 
-require_once __DIR__ . '/unit/Serialization/Symfony/mock/VCardDateMock.php';
-
 /*
  * Ensures compatibility with PHPUnit 6.x
  */
