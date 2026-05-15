@@ -26,8 +26,8 @@ final class EnumNormalizer implements NormalizerInterface
         return $data instanceof \BackedEnum;
     }
 
-    /** @return string The scalar backing value of the enum case */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): string
+    /** @return string|int The scalar backing value of the enum case */
+    public function normalize(mixed $object, ?string $format = null, array $context = []): string|int
     {
         return $object->value;
     }
