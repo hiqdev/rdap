@@ -94,24 +94,16 @@ final class SymfonySerializer implements SerializerInterface
 
     /**
      * @param array|object $input        Data to deserialise
-     * @param string|null  $type         Target class; guessed from $input when null
+     * @param string|null  $type         Target class
      * @param string       $sourceFormat Source format
-     * @return array|object
-     * @throws Exception Deserialization is not yet implemented
+     * @return never
+     * @throws Exception Always — deserialization is not yet implemented
      */
     public function deserialize(
         $input,
         ?string $type = null,
         string $sourceFormat = self::FORMAT_JSON
-    ) {
+    ): never {
         throw new Exception('Deserialization is not implemented yet');
-        if ($type === null && is_object($input)) {
-            $type = get_class($input);
-        }
-        if ($type === null) {
-            throw new InvalidArgumentException('Type is was neither passed nor guessed.');
-        }
-
-        return $this->serializer->deserialize($input, $type, $sourceFormat);
     }
 }
