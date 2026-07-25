@@ -47,6 +47,7 @@
         "ext-json": "*",
         "symfony/serializer": "^6.4",
         "symfony/property-info": "^6.4",
+        "symfony/property-access": "^6.4",
         "phpdocumentor/reflection-docblock": "^5.4"
     },
     "require-dev": {
