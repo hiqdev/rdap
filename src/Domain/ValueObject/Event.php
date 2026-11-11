@@ -100,10 +100,14 @@ final class Event
     }
 
     /**
-     * @return Link[]
+     * Returns null rather than an empty array when no links are attached, so the
+     * serializer omits the member: an empty "links" without "eventActor" fails
+     * the ICANN RDAP conformance check (-10910).
+     *
+     * @return Link[]|null
      */
-    public function getLinks(): array
+    public function getLinks(): ?array
     {
-        return $this->links ?? [];
+        return $this->links ?: null;
     }
 }

@@ -19,7 +19,7 @@ class EventTest extends TestCase
         $this->assertSame(EventAction::REGISTRATION, $event->getEventAction());
         $this->assertSame($date, $event->getEventDate());
         $this->assertNull($event->getEventActor());
-        $this->assertSame([], $event->getLinks());
+        $this->assertNull($event->getLinks());
     }
 
     public function testEventActor(): void
