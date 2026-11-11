@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace hiqdev\rdap\core\tests\unit\Serialization\Symfony;
 
+use DateTimeImmutable;
+use hiqdev\rdap\core\Domain\Constant\EventAction;
 use hiqdev\rdap\core\Domain\Entity\Domain;
 use hiqdev\rdap\core\Domain\ValueObject\DomainName;
+use hiqdev\rdap\core\Domain\ValueObject\Event;
 use hiqdev\rdap\core\Infrastructure\Serialization\Symfony\SymfonySerializer;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -52,5 +55,16 @@ class SymfonySerializerTest extends TestCase
         $restored = $this->serializer->deserialize($json, Domain::class);
 
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($restored));
+    }
+
+    public function testEventWithoutLinksOmitsLinksMember(): void
+    {
+        $domain = new Domain(DomainName::of('example.com'));
+        $domain->addEvent(Event::occurred(EventAction::REGISTRATION, new DateTimeImmutable('2020-01-01T00:00:00Z')));
+
+        $decoded = json_decode($this->serializer->serialize($domain), true);
+
+        $this->assertCount(1, $decoded['events']);
+        $this->assertArrayNotHasKey('links', $decoded['events'][0]);
     }
 }

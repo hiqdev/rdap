@@ -62,8 +62,7 @@
         "events": [
           {
             "eventAction": "deletion",
-            "eventDate": "2019-08-01T11:12:13Z",
-            "links": []
+            "eventDate": "2019-08-01T11:12:13Z"
           }
         ],
         "links": [
@@ -83,8 +82,7 @@
         "events": [
           {
             "eventAction": "deletion",
-            "eventDate": "2019-08-01T11:12:13Z",
-            "links": []
+            "eventDate": "2019-08-01T11:12:13Z"
           }
         ],
         "links": [
@@ -153,8 +151,7 @@
           "asEventActor": [
             {
               "eventAction": "unlocked",
-              "eventDate": "2019-07-03T11:12:15Z",
-              "links": []
+              "eventDate": "2019-07-03T11:12:15Z"
             }
           ],
           "publicIds": [
@@ -175,8 +172,7 @@
       "asEventActor": [
         {
           "eventAction": "unlocked",
-          "eventDate": "2019-07-03T11:12:15Z",
-          "links": []
+          "eventDate": "2019-07-03T11:12:15Z"
         }
       ],
       "publicIds": [
@@ -243,18 +239,15 @@
   "events": [
     {
       "eventAction": "deletion",
-      "eventDate": "2019-08-01T00:00:01Z",
-      "links": []
+      "eventDate": "2019-08-01T00:00:01Z"
     },
     {
       "eventAction": "deletion",
-      "eventDate": "2019-08-01T00:00:01Z",
-      "links": []
+      "eventDate": "2019-08-01T00:00:01Z"
     },
     {
       "eventAction": "deletion",
-      "eventDate": "2019-08-01T00:00:01Z",
-      "links": []
+      "eventDate": "2019-08-01T00:00:01Z"
     }
   ],
   "port43": "ns1.example.com",
